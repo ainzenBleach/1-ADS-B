@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Latinhas de refrigerante você toma no dia:
+    <input type="text" id="input_refri">
+    <br>
+    <button onclick="calcular()">Quantos refris?</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+function calcular(){
+    var refri = Number(input_refri.value);
+    var anoRefri = refri * 365;
+
+    if (anoRefri > 500){
+        div_mensagem.innerHTML = `Você consumiu ${anoRefri}. Cuidado com a diabetes!`;
+    }
+    
+
+    if (anoRefri < 500){
+        div_mensagem.innerHTML = `Você consumiu ${anoRefri}.`;
+    }
+}
+</script>

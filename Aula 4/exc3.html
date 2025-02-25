@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Valor primeira nota:
+    <input type="text" id="input_nota1">
+    <br>
+    Valor segunda nota:
+    <input type="text" id="input_nota2">
+    <br>
+    Valor terceira nota:
+    <input type="text" id="input_nota3">
+    <br>
+    <button onclick="analisar()">Analisar desempenho</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+function analisar(){
+    var n1 = Number(input_nota1.value);
+    var n2 = Number(input_nota2.value);
+    var n3 = Number(input_nota3.value);
+    
+    var media = (n1+n2+n3)/3;
+
+    if (media > 9.2){
+        div_mensagem.innerHTML = `Sua média foi de ${media}.Parabéns, você é fora de série!`;
+    }
+    
+    if (media < 9.2){
+        div_mensagem.innerHTML = `Sua média foi de ${media}.`;
+    }
+}
+
+</script>
