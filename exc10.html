@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantida de votos candidato A:
+    <input type="text" id="input_candidatoA">
+    <br>
+    Quantida de votos candidato B:
+    <input type="text" id="input_candidatoB">
+    <br>
+    Votos brancos:
+    <input type="text" id="input_branco">
+    <br>
+    Votos nulos:
+    <input type="text" id="input_nulos">
+    <br>
+    <button onclick="calcular()">Calcular votos</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+function calcular(){
+    var ca = Number(input_candidatoA.value);
+    var cb = Number(input_candidatoB.value);
+    var nulo = Number(input_nulos.value);
+    var branco = Number(input_branco.value);
+    var invalido = nulo + branco;
+    var total = ca + cb + invalido;
+
+    var porcentca = (ca / total) * 100
+    var porcentcb = (cb / total) * 100
+    var porcentinvalido = (invalido / total) * 100
+
+    div_mensagem.innerHTML =
+    `
+    Total de votos: ${total} 
+    <br>
+    Candidato A: ${ca} (${porcentca}%) 
+    <br>
+    Candidato B: ${cb} (${porcentcb}%)
+    <br>
+    Votos invalidos: ${invalido} (${porcentinvalido}%)
+    `
+}
+
+</script>

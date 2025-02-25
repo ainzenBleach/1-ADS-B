@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Tabuada do:
+    <input type="text" id="input_numero">
+    <br>
+    <button onclick="calcular()">Ver tabuada</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+    function calcular(){
+        var num = Number(input_numero.value);
+
+        var r1 = num * 1;
+        var r2 = num * 2;
+        var r3 = num * 3;
+        var r4 = num * 4;
+        var r5 = num * 5;
+        var r6 = num * 6;
+        var r7 = num * 7;
+        var r8 = num * 8;
+        var r9 = num * 9;
+        var r10 = num * 10;
+
+        div_mensagem.innerHTML = 
+        `
+        ${num} x 1 = ${r1}
+        <br>
+         ${num} x 2 = ${r2}
+        <br>
+         ${num} x 3 = ${r3}
+        <br>
+         ${num} x 4 = ${r4}
+        <br>
+         ${num} x 5 = ${r5}
+        <br>
+         ${num} x 6 = ${r6}
+        <br>
+         ${num} x 7 = ${r7}
+        <br>
+         ${num} x 8 = ${r8}
+        <br>
+         ${num} x 9 = ${r9}
+        <br>
+         ${num} x 10 = ${r10}
+        `
+    }
+
+</script>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    primeiro número:
+    <input type="text" id="input_numero1">
+    <br>
+    Segundo número
+    <input type="text" id="input_numero2">
+    <br>
+    <div id="div_mensagem"></div>
+<button onclick="adicao()">Adição</button>
+<button onclick="subtracao()">Subtração</button>
+<button onclick="multiplicacao()">multiplicação</button>
+<button onclick="divisao()">divisão</button>
+
+</body>
+</html>
+<script>
+function adicao(){
+    var n1 = Number(input_numero1.value);
+    var n2 = Number(input_numero2.value);
+
+    var resultado = n1 + n2;
+    div_mensagem.innerHTML = `A adição deu ${resultado}`
+
+    
+}
+
+function subtracao(){
+    var n1 = Number(input_numero1.value);
+    var n2 = Number(input_numero2.value);
+
+    var resultado = n1 - n2;
+    div_mensagem.innerHTML = `A subtração deu ${resultado}`
+}
+
+function divisao(){
+    var n1 = Number(input_numero1.value);
+    var n2 = Number(input_numero2.value);
+
+    var resultado = n1 / n2;
+    div_mensagem.innerHTML = `A divisão deu ${resultado}`
+}
+
+function multiplicacao(){
+    var n1 = Number(input_numero1.value);
+    var n2 = Number(input_numero2.value);
+
+    var resultado = n1 * n2;
+    div_mensagem.innerHTML = `A multiplicação deu ${resultado}`
+}
+</script>

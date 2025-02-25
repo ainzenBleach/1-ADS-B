@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantas horas você dormiu?
+    <input type="text" id="input_horas">
+    <button onclick="calcular()">Calcular</button>
+    <br>
+    <p id="dormir">Ao dormir horas, você dormiu:</p>
+    <p id="fs1">? horas na fase 1</p>   
+    <br>
+    <p id="fs2">? horas na fase 2</p>  
+    <br>
+    <p id="fs3">? horas na fase 3</p>   
+    <br>
+    <p id="fsR">? horas na fase REM</p>  
+
+</body>
+</html>
+<script>
+
+function calcular(){
+    var fase1 = 0.05;
+    var fase2 = 0.45;
+    var fase3 = 0.3;
+    var faseR = 0.20;
+
+    dormir.innerHTML = `Ao dormir ${input_horas.value} horas, você dormiu:`;
+    fs1.innerHTML = `${input_horas.value * fase1} horas na fase 1`;
+    fs2.innerHTML = `${input_horas.value * fase2} horas na fase 2`;
+    fs3.innerHTML = `${input_horas.value * fase3} horas na fase 3`;
+    fsR.innerHTML = `${input_horas.value * faseR} horas na fase REM`;
+}
+
+
+</script>

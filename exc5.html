@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do aluno:
+    <input type="text" id="input_nome">
+    <br>
+    Nota da Continuada:
+    <input type="text" id="input_nota1">
+    <br>
+    Nota da Semestral:
+    <input type="text" id="input_nota2">
+    <br>
+    <button onclick="calcular()">Calcular</button>
+</body>
+</html>
+
+<script>
+
+    function calcular(){
+        var n1 = Number(input_nota1.value) * 0.4;
+        var nome = input_nome.value;
+        var n2 = Number(input_nota2.value) * 0.6;
+
+        var media = (n1 + n2)/2;
+
+        alert(`A média de ${nome} será de ${media}.`)
+    }
+
+</script>

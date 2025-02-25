@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        
+        Informe sua idade:
+        <input type="text" id="input_idade">
+    </div>
+    <br>
+    <button onclick="aposentadoriaM()">Aposentadoria Mulher</button>
+    <button onclick="aposentadoriaH()">Aposentadoria Homem</button>
+</body>
+</html>
+
+<script>
+
+    function aposentadoriaH(){
+        var idade = Number(input_idade.value);
+        var aposetarH = 70;
+        var tempo_Restante = aposetarH - idade;
+        
+        alert(`Tempo que falta para se aposentar ${tempo_Restante} anos`)
+    
+    }
+
+    function aposentadoriaM(){
+        var idade = Number(input_idade.value);
+        var aposetarM = 60;
+        var tempo_Restante = aposetarM - idade;
+        
+        alert(`Tempo que falta para se aposentar ${tempo_Restante} anos`)
+    
+    }
+</script>

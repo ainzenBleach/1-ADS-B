@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do guerreiro:
+    <input type="text" id="input_guerreiro">
+    <br>
+    Ki base do guerreiro:
+    <input type="text" id="input_ki">
+    <br>
+    <button onclick="calcular()">Ver ki em cada forma</button>
+
+</body>
+</html>
+<script>
+
+    function calcular(){
+        var ki = Number(input_ki.value);
+        var guerreiro = input_guerreiro.value;
+
+        var ss1 = ki * 50;
+        var ss2 = ki * 100;
+        alert(`Poder base ${ki}, Super Sayajin ${ss1}, Super Sayajin 2 ${ss2}`)
+    }
+</script>

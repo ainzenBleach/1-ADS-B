@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="div_saldo">Saldo está em 0</div>
+
+    
+    <button onclick="receber()" > +100 </button>
+    <button onclick="pagar()" > -50 </button>
+
+</body>
+</html>
+
+<script>
+
+    var saldo = 0;
+    function receber() {
+        saldo = saldo + 100;
+        div_saldo.innerHTML = `Saldo está em ${saldo}`;
+    }
+
+    function pagar(){
+    var saldo = saldo - 50;
+        div_saldo.innerHTML = `Saldo está em ${saldo}`;
+    }
+
+    
+</script>
