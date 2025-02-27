@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Última série assistida:
+    <input type="text" id="input_serie">
+    <br>
+    Total de episódios que você assistiu dessa série:
+    <input type="text" id="input_episodios">
+    <br>
+    <button onclick="calcular()">Verificar nível</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+    function calcular(){
+
+        var serie = input_serie.value;
+        var ep = Number(input_episodios.value);
+
+        var tempomin = ep * 22;
+        var tempohora = tempomin / 60
+        if(tempohora < 30){
+            div_mensagem.innerHTML = `
+            Vejo que você gosta da série ${serie}
+            <br>
+            Você gastou ${tempomin} minutos ou ${tempohora} horas
+            `
+        }else{
+            div_mensagem.innerHTML = `
+            Vejo que você gosta da série ${serie}
+            <br>
+            Você gastou ${tempomin} minutos ou ${tempohora} horas
+            <br>
+            Uau, você realmente gosta dessa série!
+            `
+        }
+    }
+
+
+</script>
