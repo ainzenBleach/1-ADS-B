@@ -20,22 +20,27 @@ function calcular(){
 
     var filhos = Number(input_filhos.value)
 
-    if (filhos == 1){
-        div_mensagem.innerHTML = `Não tem TV`
+    div_mensagem.innerHTML = ""
+
+    if (filhos >= 1){
+        div_mensagem.innerHTML = `Não tem TV <br>`
     }
 
-    if (filhos == 2){
-        div_mensagem.innerHTML = `Não tem TV <br> Não tem internet`
+    if (filhos >= 2){
+        div_mensagem.innerHTML += `Não tem internet <br>`
     }
 
-    if (filhos == 3){
-        div_mensagem.innerHTML = `Não tem TV <br> Não tem internet <br> Não tem video game`
+    if (filhos >= 3){
+        div_mensagem.innerHTML += `Não tem video game <br>`
     }
     
     if (filhos >= 4){
-        div_mensagem.innerHTML = `Não tem TV <br> Não tem internet <br> Não tem video game <br> Não tem Netflix`
+        div_mensagem.innerHTML += `Não tem Netflix <br>`
     }
 
+    if (filhos >= 100){
+        div_mensagem.innerHTML += `Chama o controle de animais, porque o coelho escapou <br>`
+    }
 }
 
 </script>

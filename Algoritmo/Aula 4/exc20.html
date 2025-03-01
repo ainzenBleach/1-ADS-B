@@ -12,9 +12,8 @@
     Quantos mulheres no elevador:
     <input type="text" id="input_mulher">
     <br>
-    <button onclick="calcular()">Calcular peso</button>
+    <button onclick="calcular()">Ligar elevador</button>
     <div id="div_mensagem"></div>
-
 </body>
 </html>
 <script>
@@ -23,11 +22,12 @@
         var h = Number(input_homem.value);
         var m = Number(input_mulher.value);
 
-        var peso = (h*80)+(m*60);
+        var peso = (h*90)+(m*70);
+        var pesomax = peso - 500;
 
-        if (peso < 800){
-            div_mensagem.innerHTML = `Este elevador suporta 800 Kg e o peso estimado desta lotação é de ${peso}kg`
+        if (peso <= 500){
+            div_mensagem.innerHTML = ` <b style="color: green">Elevador vai se mover, pois está com ${peso}kg</b> `
     
-        }else{div_mensagem.innerHTML = `Este elevador suporta 800 Kg e o peso estimado desta lotação é de ${peso}kg,<b style="color: blue;"> será necessário que alguém desça para que o elevador se movimente</b>`}
+        }else{div_mensagem.innerHTML = `<b style="color: red;">Alguém precisa descer. <br> Precisa perder ${pesomax}kg para mover o elevador. </b>`}
     }
 </script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Digite sua frequência:
+    <input type="text" id="input_frequencia">
+    <br>
+    <button onclick="analisar()">Analisar frequência</button>
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+<script>
+
+    function analisar(){
+        var freque = Number(input_frequencia.value)
+
+        if (freque <= 50){
+            div_mensagem.innerHTML = `<img src="https://th.bing.com/th/id/R.356f39014166c67d4f62080401a251d8?rik=kq1OP2XwZld8Yg&pid=ImgRaw&r=0" alt="">`
+        }else {
+
+            div_mensagem.innerHTML = `<img src="https://thumbs.dreamstime.com/b/surprised-nerd-man-isolated-white-background-33451012.jpg" alt="">`
+        }
+
+    }
+</script>

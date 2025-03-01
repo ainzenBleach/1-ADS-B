@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Temperatura do ambiente:
+    <input type="text" id="input_temperatura">
+    <br>
+    <button onclick="verificar()">Verificar clima</button>
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+<script>
+
+    function verificar(){
+        var temp = Number(input_temperatura.value)
+        
+        if (temp < 10){
+            div_mensagem.innerHTML = `<img src="https://th.bing.com/th/id/OIP.dioZWp2XRTB23GvUT6dztwHaEA?rs=1&pid=ImgDetMain" alt="">`
+        } else {
+            div_mensagem.innerHTML = `<img src="https://thumbs.dreamstime.com/b/spoiled-rotten-foods-mold-apples-peppers-hard-cheese-banan-gray-background-spoiled-rotten-foods-mold-apples-213040301.jpg" alt="">`
+        }
+    }
+</script>

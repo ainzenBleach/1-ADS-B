@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    Última série assistida:
+    Última série que você assistiu:
     <input type="text" id="input_serie">
     <br>
     Total de episódios que você assistiu dessa série:
@@ -25,6 +25,7 @@
 
         var tempomin = ep * 22;
         var tempohora = tempomin / 60
+        
         if(tempohora < 30){
             div_mensagem.innerHTML = `
             Vejo que você gosta da série ${serie}

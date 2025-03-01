@@ -26,10 +26,10 @@
 
         var conta = saldo - debito;
 
-        if (conta > 0){
-           div_mensagem.innerHTML = `<b style="color: blue;"> O saldo atual da conta corrente é R$${conta} </b>`
+        if (conta >= 0){
+           div_mensagem.innerHTML = `<i style="color: blue;"> O saldo atual da conta corrente é R$${conta} </i>`
     
-        }else { div_mensagem.innerHTML = `<b style="color: red;"> O saldo atual da conta corrente é R$${conta} </b>`}
+        } else { div_mensagem.innerHTML = `<b style="color: red;"> O saldo atual da conta corrente é R$${conta} </b>`}
     }
 
 </script>

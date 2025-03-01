@@ -26,9 +26,9 @@
         var porcent = (prest / renda) * 100
 
         if (porcent > 30){
-            div_mensagem.innerHTML = `A prestação corresponde a ${porcent}% da renda familiar, <b style="color:red">Será necessário complementar a renda familiar</b> `
+            div_mensagem.innerHTML += `A prestação corresponde a ${porcent}% da renda familiar, <b style="color:red">será necessário complementar a renda familiar</b> <br> `
         
-        } else {div_mensagem.innerHTML = `A prestação corresponde a ${porcent}% da renda familiar`}
+        } else {div_mensagem.innerHTML += `A prestação corresponde a ${porcent}% da renda familiar <br>`}
     }
 
 </script>
