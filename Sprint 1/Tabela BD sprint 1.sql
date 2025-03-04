@@ -30,6 +30,7 @@ INSERT INTO login (empresa, CPF, senha) VALUES
 
 create table carros(
  id int primary key auto_increment,
+ idEmpresa int,
  placaDoCarro varchar(11) unique,
  numeroDeSensores int,
  statusDoCarro varchar(50),
@@ -41,19 +42,58 @@ create table carros(
 drop table carros;
 select * from carros;
 
-INSERT INTO carros (placaDoCarro, numeroDeSensores, statusDoCarro) VALUES
-('ABC-1234', 4, 'Ativo'),
-('DEF-5678', 2, 'Desativado'),
-('GHI-9101', 6, 'Manutenção'),
-('JKL-1122', 3, 'Ativo'),
-('MNO-3344', 5, 'Desativado'),
-('PQR-5566', 7, 'Manutenção'),
-('STU-7788', 4, 'Ativo'),
-('VWX-9900', 2, 'Ativo'),
-('YZA-2233', 3, 'Desativado'),
-('BCD-4455', 8, 'Manutenção'),
-('EFG-6677', 5, 'Ativo'),
-('HIJ-8899', 3, 'Desativado'),
-('KLM-0011', 6, 'Manutenção'),
-('NOP-2233', 4, 'Ativo'),
-('QRS-4455', 2, 'Desativado');
+INSERT INTO carros (idEmpresa,placaDoCarro, numeroDeSensores, statusDoCarro) VALUES
+(1,'ABC-1234', 4, 'Ativo'),
+(1,'DEF-5678', 2, 'Desativado'),
+(1,'GHI-9101', 6, 'Manutenção'),
+(2,'JKL-1122', 3, 'Ativo'),
+(2,'MNO-3344', 5, 'Desativado'),
+(3,'PQR-5566', 7, 'Manutenção'),
+(4,'STU-7788', 4, 'Ativo'),
+(5,'VWX-9900', 2, 'Ativo'),
+(6,'YZA-2233', 3, 'Desativado'),
+(7,'BCD-4455', 8, 'Manutenção'),
+(8,'EFG-6677', 5, 'Ativo'),
+(9,'HIJ-8899', 3, 'Desativado'),
+(10,'KLM-0011', 6, 'Manutenção'),
+(11,'NOP-2233', 4, 'Ativo'),
+(12,'QRS-4455', 2, 'Desativado');
+
+
+create table sensores(
+id int primary key auto_increment,
+idCarros int,
+statusDoSensor varchar(30),
+constraint chkSensor
+ check (statusDoSensor in('Ativo','Desativado','Manutenção'))
+
+);
+select * from sensores;
+
+INSERT INTO sensores (idCarros, statusDoSensor) VALUES 
+(1, 'Ativo'),
+(2, 'Desativado'),
+(3, 'Manutenção'),
+(4, 'Ativo'),
+(5, 'Ativo'),
+(6, 'Desativado'),
+(7, 'Manutenção'),
+(7, 'Manutenção'),
+(7, 'Manutenção'),
+(7, 'Manutenção'),
+(8, 'Ativo'),
+(9, 'Desativado'),
+(10, 'Ativo'),
+(11, 'Manutenção'),
+(12, 'Ativo'),
+(13, 'Desativado'),
+(14, 'Ativo'),
+(14, 'Ativo'),
+(14, 'Ativo'),
+(15, 'Manutenção');
+
+select * from sensores;
+
+select * from sensores where idCarros = 14;
+
+

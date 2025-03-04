@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe o tamanho do seu baú:
+    <Input id="input_tamanho"></Input>
+    <br>
+    1 - Pequeno | 2 - Medio | 3 - Grande
+    <br>
+    Informe a quantidade de alimento sendo transportado
+    <input type="text" id="input_alimento">
+    <br>
+    Até 300kg para pequeno | Até 700kg para medio | Até 1000kg para Grande
+    <br>
+    <button onclick="analisar()">Analisar numero de sensores</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+    function analisar(){
+
+        var tamanho = Number(input_tamanho.value);
+        var alimento = Number(input_tamanho.value);
+
+        if(tamanho == 1){
+
+            if(alimento <= 300){
+
+                if(alimento >= 0){
+
+                    div_mensagem.innerHTML = `O número de sensores será de 2`
+                }
+            }
+        }
+
+        if(tamanho == 2){
+
+            if(alimento <= 700){
+
+                if(alimento >= 0){
+        
+                div_mensagem.innerHTML = `O número de sensores será de 4`
+                }
+            }
+        }
+
+        if(tamanho == 3){
+
+            if(alimento <= 1000){
+
+                if(alimento >= 0){
+        
+                div_mensagem.innerHTML = `O número de sensores será de 8`
+                }
+            }
+        }
+
+        if(tamanho > 3){
+            div_mensagem.innerHTML = `Tamanho de caminhão não encontrado`
+        }
+
+        if(tamanho < 1){
+            div_mensagem.innerHTML = `Tamanho de caminhão não encontrado`
+        }
+}
+</script>
