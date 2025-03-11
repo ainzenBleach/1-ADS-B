@@ -3,15 +3,15 @@ use Sprint1;
 
 CREATE TABLE login (
     idLogin INT PRIMARY KEY AUTO_INCREMENT,
-    empresa VARCHAR(100),
-    CPF VARCHAR(15) UNIQUE,
-    senha VARCHAR(50)
+    empresa VARCHAR(100) not null,
+    cnpj VARCHAR(15) UNIQUE not null,
+    senha VARCHAR(50) unique not null
 );
 
 select * from login;
 drop table login;
 
-INSERT INTO login (empresa, CPF, senha) VALUES
+INSERT INTO login (empresa, cnpj, senha) VALUES
 ('Tech Innovations', '85412397654', 'a1B2c3D4'),
 ('Green Solutions', '67043918572', '3XyZ7kT9'),
 ('Future Enterprises', '53790168423', 'm5N0bL8w'),
@@ -28,12 +28,15 @@ INSERT INTO login (empresa, CPF, senha) VALUES
 ('TechnoWave', '74026519830', 'o9V5bD3J'),
 ('Advanced Dynamics', '91576034812', 'Q0rZ7HpN');
 
+select empresa, cnpj from login where cnpj like '%4'; 
+select empresa, cnpj from login where empresa like '%s%'; 
+
 create table carros(
  id int primary key auto_increment,
- idEmpresa int,
- placaDoCarro varchar(11) unique,
- numeroDeSensores int,
- statusDoCarro varchar(50),
+ idEmpresa int not null,
+ placaDoCarro varchar(11) unique not null,
+ numeroDeSensores int ,
+ statusDoCarro varchar(50) not null,
  constraint chkCarro 
  check (statusDoCarro in('Ativo','Desativado','Manutenção'))
  
@@ -59,11 +62,12 @@ INSERT INTO carros (idEmpresa,placaDoCarro, numeroDeSensores, statusDoCarro) VAL
 (11,'NOP-2233', 4, 'Ativo'),
 (12,'QRS-4455', 2, 'Desativado');
 
+select 
 
 create table sensores(
 id int primary key auto_increment,
-idCarros int,
-statusDoSensor varchar(30),
+idCarros int not null,
+statusDoSensor varchar(30) not null,
 constraint chkSensor
  check (statusDoSensor in('Ativo','Desativado','Manutenção'))
 
@@ -94,6 +98,14 @@ INSERT INTO sensores (idCarros, statusDoSensor) VALUES
 
 select * from sensores;
 
-select * from sensores where idCarros = 14;
+select idCarros, statusDoSensor from sensores where idCarros = 14;
+
+
+
+
+
+
+ -- colocar alerta, melhorar login, melhorar id carros, criar tabela usuarios, alimentos, 
+ -- telefone empresa,
 
 

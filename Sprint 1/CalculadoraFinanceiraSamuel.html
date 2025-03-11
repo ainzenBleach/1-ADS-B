@@ -29,10 +29,10 @@
 
         if(tamanho == 1){
 
-            if(alimento <= 300){
+            if(alimento >= 0){
 
-                if(alimento >= 0){
-
+                if(alimento <= 300){
+                    
                     div_mensagem.innerHTML = `O número de sensores será de 2`
                 }
             }
@@ -40,9 +40,9 @@
 
         if(tamanho == 2){
 
-            if(alimento <= 700){
+            if(alimento >= 0){
 
-                if(alimento >= 0){
+                if(alimento <= 700){
         
                 div_mensagem.innerHTML = `O número de sensores será de 4`
                 }
@@ -51,9 +51,9 @@
 
         if(tamanho == 3){
 
-            if(alimento <= 1000){
+            if(alimento >= 0){
 
-                if(alimento >= 0){
+                if(alimento <= 1000){
         
                 div_mensagem.innerHTML = `O número de sensores será de 8`
                 }
