@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Digite um número:
+    <input type="text" id="input_numero"> <br>
+    <button onclick="analisar()">Analisar botão</button> <br>
+    <div id="div_mensagem"></div>
+
+
+</body>
+</html>
+<script>
+
+    function analisar(){
+
+        var num = Number(input_numero.value)
+
+        if (num == 1){
+            div_mensagem.innerHTML = `Você escolheu o número 1`
+        }else if (num == 2){
+            div_mensagem.innerHTML = `Você escolheu o número 2`
+        }else if (num == 3){
+            div_mensagem.innerHTML = `Você escolheu o número 3`
+        }else if (num == 4){
+            div_mensagem.innerHTML = `Você escolheu o número 4`
+        }else if (num == 5){
+            div_mensagem.innerHTML = `Você escolheu o número 5`
+        }else {
+            div_mensagem.innerHTML = `Você deve escolher um número entre 1 a 5`
+        }
+
+    }
+
+
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira a quantidade de pão francês que você consome por dia: <br>
+    <input type="text" id="input_pao">
+    <br>
+    Insira a quantidade de bolacha recheada que você consome por dia: <br>
+    <input type="text" id="input_bolacha">
+    <br>
+    Insira a quantidade de copos de achocolatado que você consome por dia: <br>
+    <input type="text" id="input_achocolatado">
+    <br>
+    <button onclick="analisar()">Analisar calorias</button>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+<script>
+
+    function analisar(){
+
+        var pao = Number(input_pao.value)
+        var bolacha = Number(input_bolacha.value)
+        var chocolate = Number(input_achocolatado.value) 
+
+        var caloriasTotais = (pao * 50)+(bolacha * 80)+(chocolate * 70)
+
+        if(caloriasTotais < 200 ){
+            div_mensagem.innerHTML = `Parabéns, vai ficar em forma!`
+        }else if(caloriasTotais < 400 ){
+            div_mensagem.innerHTML = `Cuidado, vai ficar menos saudável!`
+        }else if(caloriasTotais > 400 ){
+            div_mensagem.innerHTML = `Alerta crítico de saúde !!!`
+        }
+    }
+
+</script>

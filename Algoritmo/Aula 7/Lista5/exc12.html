@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    Informe o seu estado emocional:
+    <br>
+    <input type="text" id="input_estado" placeholder="Informe seu humor">
+    <br>
+    <button onclick="analisar()">Mostrar humor</button>
+    <div id="div_mensagem"></div> 
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+ function analisar(){
+    var estado = input_estado.value
+
+    if(estado == "Feliz"){
+        div_mensagem.innerHTML = `😊`
+    }else if(estado == "Triste"){
+        div_mensagem.innerHTML = `😢`
+    }else if(estado == "Bravo"){
+        div_mensagem.innerHTML = `😡`
+    }else if(estado == "Surpreso"){
+        div_mensagem.innerHTML = `😲`
+    }else if(estado == "Cansado"){
+        div_mensagem.innerHTML = `😴`
+    }else{
+        div_mensagem.innerHTML = `Informe algum desse humor: Feliz, Triste, Bravo, Surpreso, Cansado`
+    }
+
+    }
+
+</script>

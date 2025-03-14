@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    Informe seu peso em KG:
+    <br>
+    <input type="text" id="input_peso">
+    <br>
+    Informe sua altura em metros:
+    <br>
+    <input type="text" id="input_altura">
+    <br>
+    <button onclick="analisar()">Analisar IMC</button>
+    <div id="div_mensagem"></div> 
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+ function analisar(){
+    var peso = Number(input_peso.value)
+    var alt = Number(input_altura.value)
+
+    var imc = peso / (alt * alt)
+
+    if(imc < 18.5){
+        div_mensagem.innerHTML = ` Abaixo do peso`
+    }else if(imc < 25){
+        div_mensagem.innerHTML = ` Peso normal`
+    }else if(imc < 30 ){
+        div_mensagem.innerHTML = ` Acima do peso`
+    }else{
+        div_mensagem.innerHTML = ` Cuidado, risco de obesidade`
+    }
+ }
+</script>

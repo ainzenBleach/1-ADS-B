@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantidade de luz consumida em KWh: <br>
+    <input type="text" id="input_kwh">
+    <br>
+    Bandeira da energia: <br>
+    <input type="text" id="input_bandeira">
+    <br>
+    Quantidade de internet consumida em MB: <br>
+    <input type="text" id="input_internet">
+    <br>
+    Possui linha telefonica: <br>
+    <input type="text" id="input_linha"><br><br>
+    <button onclick="calcular()">Calcular despesas</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+    function calcular(){
+
+        var energia =   Number(input_kwh.value);
+        var bandeira =  input_bandeira.value;
+        var internet =  Number(input_internet.value);
+        var linha =     input_linha.value;
+
+        var valorBandeiria = 0;
+
+        if(bandeira == "verde"){
+            valorBandeira = 0.75;
+        };
+        if(bandeira == "amarela"){
+            valorBandeira = 0.9;
+        };
+        if(bandeira == "vermelha"){
+            valorBandeira = 1;
+        };
+        var contaEnergia = energia * valorBandeira;
+        if(energia <= 50){
+            contaEnergia = contaEnergia * 0.9
+        }
+        
+        var contaInternet = internet * 0.8;
+        if(linha == "sim"){
+            contaInternet = contaInternet * 1.35
+        }
+        if(linha == "não"){
+            contaInternet = contaInternet * 0.925
+        }
+
+        var total = contaEnergia + contaInternet
+
+        div_mensagem.innerHTML = `
+        Com o consumo de ${energia} KWh na bandeira ${bandeira}, a conta de energia será de R$ ${contaEnergia} <br>
+        Com o consumo de ${internet} MB, o valor do plano de internet é R$ ${contaInternet} <br>
+        Gasto total na despesa mensal: R$ ${total}
+        
+        `
+    }
+</script>

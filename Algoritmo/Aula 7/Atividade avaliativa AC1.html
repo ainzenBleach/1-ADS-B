@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe seu nome: <br>
+    <input type="text" id="input_nome"> 
+    <br> 
+    <br>
+    Informe a distância percorrida: <br>
+    <input type="text" id="input_distancia" placeholder="Informe em KM"> 
+    <br> 
+    <br>
+    Informe a bandeira ativa no momento: <br>
+    <input type="number" id="input_bandeira" placeholder="Informe entre 1, 2 ou 3"> 
+    <br> 
+    <br>
+    Informe o horário: <br>
+    <input type="text" id="input_horario" placeholder="Informe em horas"> 
+    <br> 
+    <br>
+    <button onclick="calcular()">Calculaar corrida</button>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+<script>
+
+    function calcular(){
+        var nome = input_nome.value
+        var distancia = Number(input_distania.value)
+        var bandeira = Number(input_bandeira.value)
+        var horas = Number(input_horario.value)
+        var acrescimo = Number(0)
+        var corrida = distancia * 1.25
+
+        if(bandeira == 1){
+            if(horas < 0){
+                div_mensagem.innerHTML = `Horário inválido`
+            }else if(horas < 7){
+                acresimo = 1.05
+            }else if(horas < 13){
+                acresimo = 1.1
+            }else if(horas <= 23){
+                acresimo = 1.15
+            }else{
+                div_mensagem.innerHTML = `Horário inválido`
+            }
+        }
+        if(bandeira == 2){
+
+        }
+        if(bandeira == 3){
+
+        }
+
+        if(bandeira < 1){
+            div_mensagem.innerHTML = `Bandeiria inválida`
+        }
+        if(bandeira > 3){
+            div_mensagem.innerHTML = `Bandeiria inválida`
+        }
+    }
+
+</script>

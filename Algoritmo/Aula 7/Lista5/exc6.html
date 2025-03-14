@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    Qual time de São paulo você torce:
+    <input type="text" id="input_time"> <br>
+    <button onclick="analisar()">Fale sobre esse time</button>
+    <div id="div_mensagem"></div>
+    
+
+    
+</body>
+</html>
+<script>
+    function analisar(){
+
+        var time = input_time.value
+
+        if(time == "São Paulo"){
+            div_mensagem.innerHTML = `<b style="background-color: black; color:red">Salve o Tricolor paulista</b>`
+        }else if(time == "Palmeiras"){
+            div_mensagem.innerHTML = `<b style="background-color: green; color:white">Salve o alviverde imponente</b>`
+        }else if(time == "Corinthians"){
+                div_mensagem.innerHTML = `<b style="background-color: black; color:white">Salve o Corinthians</b>`
+        }else if(time == "Santos"){
+            div_mensagem.innerHTML = `<b style="background-color: white; color:black">Agora quem dá a bola é o Santos</b>`
+        }else{
+            div_mensagem.innerHTML = `Informe um desses times: São Paulo, Palmeiras, Corinthians, Santos`
+        }
+
+    }
+</script>

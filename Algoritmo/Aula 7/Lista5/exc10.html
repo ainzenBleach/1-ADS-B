@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    Informe sua velocidade:
+    <br>
+    <input type="text" id="input_velocidade">
+    <br>
+    Informe o limite de velocidade:
+    <br>
+    <input type="text" id="input_limite">
+    <br>
+    <button onclick="analisar()">Verificar</button>
+    <div id="div_mensagem"></div> 
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+ function analisar(){
+    var velocidade = Number(input_velocidade.value)
+    var limite = Number(input_limite.value)
+    
+    if(velocidade <= limite){
+        div_mensagem.innerHTML = `Velocidade dentro do limite. Boa direção!`
+    }else if(velocidade > limite){
+        if(velocidade   > limite * 1.2){
+            div_mensagem.innerHTML = `Multa grave! Velocidade muito acima do permitido.`
+        }else{
+        div_mensagem.innerHTML = `Atenção! Excedendo o limite permitido.`
+    }
+    }
+ }
+</script>

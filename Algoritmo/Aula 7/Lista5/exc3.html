@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Digite a temperatura do ambiente:
+    <input type="text" id="input_temperatura"> <br>
+    <button onclick="analisar()">Analisar sensação termica</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function analisar(){
+        var temp = Number(input_temperatura.value)
+
+        if(temp > 31){
+            div_mensagem.innerHTML = `Calor ardente`
+        }else if(temp > 24){
+            div_mensagem.innerHTML = `Com calor`
+        }else if(temp > 21){
+            div_mensagem.innerHTML = `Confortável`
+        }else if(temp > 14){
+            div_mensagem.innerHTML = `Com frio`
+        }else if(temp < 14){
+            div_mensagem.innerHTML = `Congelante`
+        }
+    }
+</script>
