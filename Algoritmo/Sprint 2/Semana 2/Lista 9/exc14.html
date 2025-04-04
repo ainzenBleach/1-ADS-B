@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Em quanto em quanto tempo você faz musculação:
+    <input type="text" id="input_musculacao"> <br><br>
+    <button onclick="exibir()">Exibir rotina mensal</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+function exibir(){
+    var musculacao = Number(input_musculacao.value)
+    var contador = 0
+    var mensagem =  ""
+
+    if(musculacao <= 30 && musculacao > 0){
+        while (contador < 30 && contador > 1){
+            contador ++
+
+            if(1 == (contador % musculacao) ){
+                mensagem += `Dia ${contador} - Musculação <br>`
+            }else {
+                 mensagem += ` Dia ${contador} - Comer, dormir etc <br>`
+            }
+        }
+
+        if(musculacao == 1){
+            while (contador < 30){
+                contador ++
+                    mensagem += `Dia ${contador} - Musculação <br>`
+            }
+    }
+    }else{
+        alert(`Informe um valor entre 2 e 30`)
+    }
+    div_mensagem.innerHTML = mensagem
+}
+
+</script>

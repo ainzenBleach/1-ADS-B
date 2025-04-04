@@ -1,0 +1,69 @@
+body{
+    margin-top: 10%;
+    background-color: #213531;
+    align-items: center;
+    
+}
+.div_master{
+    margin: auto;
+    align-items: center;
+
+}
+.div_countaner{
+    text-align: center;
+    margin: auto;
+    background-color: #242F46;
+    width: 800px;
+    height: 250px;
+    border-radius: 10px;
+    color:white;
+    padding-top: 10px;
+}
+.div_countaner input{
+    border: solid 2px #242F46;
+    background-color: white;
+    border-radius: 10px;
+    height:40px;
+    font-size: 25px;
+    opacity: 0.5;
+}
+.div_countaner input:hover{
+    opacity: 1;
+}
+.div_countaner input:focus{
+    opacity: 1;
+}
+.div_countaner button{
+   display: flex;
+   margin: auto;
+   width: 150px;
+   height: 40px;
+   align-items: center;
+   justify-content: center;
+   border-radius: 10px;
+   background-color: #a2cae0;
+   font-size: 22px;
+   opacity: 0.5;
+ }
+.convertor:hover{
+    opacity: 1;
+ }
+ .div_resultado{
+    display: flex;
+    justify-content: center;
+ }
+ .div_resultado div{
+    margin: 10px;
+    border: solid 4px #242F46;
+    height: 80px;
+    width: 250px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+    background-color: #FBFAFA;
+    opacity: 0.5;
+ }
+ .div_resultado div:hover{
+ opacity: 1;
+ }
+

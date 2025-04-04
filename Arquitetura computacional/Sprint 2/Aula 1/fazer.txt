@@ -1,0 +1,10 @@
+Blocos de texto
+fundo branco
+entrutura vertical
+Fundo branco: #FFFFFF
+caixa: #F0F0F0
+botão: #007BFF
+
+
+referencia:
+https://www.rapidtables.org/pt/convert/number/decimal-to-binary.html

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<!-- <style>
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+
+    body{
+        margin-left: 10%;
+        align-items: center;
+        
+    }
+</style> -->
+<body>
+    Informe a quantidade de Macarons :
+    <Input id="input_macarons"></Input> <br>
+    Informe o preço dos Macaron :
+    <Input id="input_macarons_preco"></Input> <br><br>
+    
+    Informe a quantidade de Brigadeiros : 
+    <Input id="input_brigadeiros"></Input> <br>
+    Informe o preço dos Brigadeiro : 
+    <Input id="input_brigadeiros_preco"></Input> <br><br>
+    
+    Informe a quantidade de Cupcakes :
+    <Input id="input_cupcakes"></Input> <br>
+    Informe  o preço do Cupcake :
+    <Input id="input_cupcakes_preco"></Input> <br><br>
+    
+    Informe a quantidade de Cheesecakes :
+    <Input id="input_cheesecake"></Input> <br>
+    Informe o preço do Cheesecake :
+    <Input id="input_cheesecake_preco"></Input> <br><br>
+
+    <button onclick="verificar()">Verificar venda</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+function verificar(){
+    var imagem_macarons = "https://th.bing.com/th/id/OIP.GPY4haqftoU10bKxlGtNNAHaHa?w=178&h=180&c=7&r=0&o=5&pid=1.7"
+
+    var macarons_preco = Number(input_macarons_preco.value)
+    var brigadeiros_preco = Number(input_brigadeiros_preco.value)
+    var cupcakes_preco = Number(input_cupcakes_preco.value)
+    var cheesecake_preco = Number(input_cheesecake_preco.value)
+
+
+    var macarons = Number(input_macarons.value)
+    var brigadeiros = Number(input_brigadeiros.value)
+    var cupcakes = Number(input_cupcakes.value)
+    var cheesecake = Number(input_cheesecake.value)
+
+    if(
+    macarons >= 0 && brigadeiros >= 0 && cupcakes >= 0 && cheesecake >= 0 && 
+    macarons_preco > 0 && brigadeiros_preco > 0 && cupcakes_preco > 0 && cheesecake_preco > 0
+    ){
+        var venda = 0
+        var mensagem = ""
+        var vendatotal = 0
+
+        var total = (macarons * macarons_preco)+(brigadeiros * brigadeiros_preco)+(cupcakes * cupcakes_preco)+(cheesecake * cheesecake_preco)
+        
+        while(venda < macarons){
+            venda ++
+            vendatotal ++
+            mensagem += `<p> Venda.${vendatotal} - <img width="100px" height="100px"  src=${imagem_macarons} alt=""> - Valor por unidade: R$${macarons_preco}</p> <br>`
+        }
+        venda = 0
+        while(venda < brigadeiros){
+            venda ++
+            vendatotal ++
+            mensagem += `<p> Venda.${vendatotal} - <img width="100px" height="100px"  src="https://th.bing.com/th/id/R.73bcb8373ce2ac98a2ae48355ce86ac2?rik=kjsDA2uTLhmKnQ&pid=ImgRaw&r=0" alt=""> - Valor por unidade: R$${brigadeiros}</p> <br>`
+        }
+        venda = 0
+        while(venda < cupcakes){
+            venda ++
+            vendatotal ++
+            mensagem += `<p> Venda.${vendatotal} - <img width="100px" height="100px"  src="https://th.bing.com/th/id/OIP.7BCEerjOA9lCaaUxgPBIHwHaHa?rs=1&pid=ImgDetMain" alt=""> - Valor por unidade: R$${cupcakes_preco}</p> <br>`
+        }
+        venda = 0
+        while(venda < cheesecake){
+            venda ++
+            vendatotal ++
+            mensagem += `<p> Venda.${vendatotal} - <img width="100px" height="100px"  src="https://th.bing.com/th/id/OIP.5WwEQQ0yuFtZnoUAH3UCiQHaHa?rs=1&pid=ImgDetMain" alt=""> - Valor por unidade: R$${cheesecake_preco}</p> <br>`
+        }
+        mensagem += `Com a quantidade de ${macarons} Macarons, ${brigadeiros} Brigadeiros, ${cupcakes} Cupcakes e ${cheesecake} Cheesecakes, a venda totalizará R$${total}`
+        div_mensagem.innerHTML = `${mensagem}`
+    }else{
+        div_mensagem.innerHTML = `Inserir valores positivos nos campos acima!!!`
+    }
+}
+</script>

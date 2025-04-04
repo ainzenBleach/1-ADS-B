@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Qual o nome da pessoa que você maais ama na vida:
+    <input type="text" id="input_amor"> <br><br>
+    Quanto que você ama essa pessoa?:
+    <input type="text" id="input_qtd_ama"> <br><br>
+    <button onclick="expressar()">Expressar amor</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+    function expressar(){
+        var amor = input_amor.value
+        var qtd_ama = Number(input_qtd_ama.value)   
+        var contador = 0
+        
+        while (contador < qtd_ama){
+            contador ++
+            div_mensagem.innerHTML += `${contador} - ${amor}, eu te amo! Sempre lembre disso <br>`
+        }
+    }
+
+
+</script>

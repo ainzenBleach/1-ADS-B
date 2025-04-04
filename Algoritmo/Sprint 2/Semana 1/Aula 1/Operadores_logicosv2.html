@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>    
+    Qual o seu saldo:
+    <input type="text" id="input_saldo">
+    <button onclick="analisar()">Analisar o saldo</button>
+    <div id="div_mensagem"></div>    
+</body>
+</html>
+<script>
+
+function analisar(){
+
+    var saldo = input_saldo.value
+
+    if (saldo < 1000){
+        div_mensagem.innerHTML = `Busque uma nova renda`
+    } else if (saldo <= 2000){
+            div_mensagem.innerHTML = `Em torno de um 1 salário mínimo`
+    } else {
+        div_mensagem.innerHTML = "Mais que 2 salário mínimo"
+    }
+}
+</script>

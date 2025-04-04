@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Digite um número:
+    <input type="text" id="input_numero"> <br><br>
+    <button onclick="calcular()">Adoro multiplos de 5</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+function calcular(){
+    
+    var numero = Number(input_numero.value)
+    div_mensagem.innerHTML = ``
+    if (numero >= 20 && numero <= 100){
+        var contar = 0
+        var resto = 0
+        while(contar < numero){
+
+            contar ++
+
+            resto = contar % 5
+
+            if(resto == 0){
+                div_mensagem.innerHTML += `${contar} <br>`
+            }
+            
+        }
+    }else(
+
+    alert(`Coloque um número entre 20 e 100`)    
+)
+
+}
+
+
+</script>

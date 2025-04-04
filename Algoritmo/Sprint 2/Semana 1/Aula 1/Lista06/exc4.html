@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Qual o horário você costuma assistir netflix: <br>
+    <select id="select_hora">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+        <option>21</option>
+        <option>22</option>
+        <option>23</option>
+    </select>
+    <button onclick="analisar()">Ver recomendação</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<Script>
+
+    function analisar(){
+        var hora = Number(select_hora.value)
+
+        if(hora >= 19 && hora <= 21){
+            div_mensagem.innerHTML = `Não é recomendável que você assista sua série favorita no horário ${hora}h!`
+        }else{
+            div_mensagem.innerHTML = `O horário ${hora}h é adequado para assistir sua série favorita!`
+        }
+        
+    }
+
+</Script>

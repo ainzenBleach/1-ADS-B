@@ -1,0 +1,51 @@
+<!-- Criado por Marise Miranda | 2017.1 -->
+<!-- Adaptado por Matheus Matos | 2025.1 -->
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPTecher's Machine</title>
+</head>
+<div class="div_master">
+    <div class="div_countaner">
+        <h1>SPTecher's Machine</h1>
+        <h3>Digite um número decimal:</h3>
+        <input id="demo1" type="text" placeholder="">
+        <br><br>
+
+        <button onclick="converter()" class="convertor">Converter</button>
+    </div>
+    <div class="div_resultado">
+        <div id="div_binario">
+
+        </div>
+
+        <div id="div_octal">
+            
+        </div>
+
+        <div id="div_hexa">
+            
+        </div>
+
+    </div>
+
+</div>
+
+
+    <script>
+        function converter() {
+            var decimal = Number(demo1.value);
+
+            div_octal.innerHTML = `<br>Octal: ` + decimal.toString(8);
+            div_hexa.innerHTML = `<br>Hexadecimal: ` + decimal.toString(16);
+            div_binario.innerHTML = `<br>Binário: ` + decimal.toString(2);
+        }
+    </script>
+</body>
+
+</html>

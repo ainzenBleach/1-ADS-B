@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe um número:
+    <input type="text" id="input_numero"> <br><br>
+    <button onclick="pares()">Mostrar pares</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+function pares(){
+
+    contar = 0
+    numero = Number(input_numero.value)
+
+    if (numero >= 0 ){
+        while(contar < numero){
+
+            contar ++
+
+            var resto = contar % 2
+
+            if(resto == 0){
+                div_mensagem.innerHTML += `${contar} <br>`
+            }
+            
+        }
+    }else(
+    alert(`Coloque um número maior que zero`)    
+)
+}
+</script>

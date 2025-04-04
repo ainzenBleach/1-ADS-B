@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Qual o produto comprado:
+    <input type="text" id="input_produto">
+    <br>
+    Quantas parcelas foi dividida(max 12):
+    <input type="Number" id="input_parcela">
+    <br>
+    Quanto custa cada parcela:
+    <input type="number" id="input_custo"></input>
+    <br>
+    <button onclick="analisar()">Analisar valor</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+    function analisar(){
+        var produto = input_produto.value;
+        var parcela = Number(input_parcela.value);
+        var custo = Number(input_custo.value);
+
+        var valor = parcela * custo;
+        var valor1 = parcela * (custo * 1.05);
+        var valor2 = parcela * (custo * 1.10);
+
+        if (parcela == 1){
+            div_mensagem.innerHTML = `O valor final do ${produto} será de R$${valor} em ${parcela} parcelas de R$${custo}`
+
+        }
+        if (parcela == 2){
+            div_mensagem.innerHTML = `O valor final do ${produto} será de R$${valor} em ${parcela} parcelas de R$${custo}`
+
+        }
+        if (parcela == 3){
+            div_mensagem.innerHTML = `O valor final do ${produto} será de R$${valor} em ${parcela} parcelas de R$${custo}`
+
+        }
+        if (parcela == 4){
+            div_mensagem.innerHTML = `O valor final do ${produto} será de R$${valor} em ${parcela} parcelas de R$${custo}`
+
+        }
+        if (parcela == 5){
+            div_mensagem.innerHTML = `O valor final do ${produto} será de R$${valor} em ${parcela} parcelas de R$${custo}`
+
+        }
+        if (parcela == 6){
+            div_mensagem.innerHTML = `O valor final do ${produto} será de R$${valor1} em ${parcela} parcelas de R$${custo}`
+
+        }
+        if (parcela == 7){
+            div_mensagem.innerHTML = `O valor final do ${produto} será de R$${valor1} em ${parcela} parcelas de R$${custo}`
+
+        }
+        if (parcela == 8){
+            div_mensagem.innerHTML = `O valor final do ${produto} será de R$${valor1} em ${parcela} parcelas de R$${custo}`
+
+        }
+        if (parcela == 9){
+            div_mensagem.innerHTML = `O valor final do ${produto} será de R$${valor1} em ${parcela} parcelas de R$${custo}`
+
+        }
+        if (parcela == 10){
+            div_mensagem.innerHTML = `O valor final do ${produto} será de R$${valor2} em ${parcela} parcelas de R$${custo}`
+
+        }
+        if (parcela == 11){
+            div_mensagem.innerHTML = `O valor final do ${produto} será de R$${valor2} em ${parcela} parcelas de R$${custo}`
+
+        }
+        if (parcela == 12){
+            div_mensagem.innerHTML = `O valor final do ${produto} será de R$${valor2} em ${parcela} parcelas de R$${custo}`
+
+        }
+        
+        if (parcela > 12){ div_mensagem.innerHTML = `Número de parcelas invalidas`}
+        if (parcela < 1){ div_mensagem.innerHTML = `Número de parcelas invalidas`}
+    }
+
+</script>

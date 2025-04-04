@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Tamanho do celular:
+    <input type="text" id="input_tamanho"> <br><br>
+    Selecione a cor:
+    <select id="select_cor">
+        <option value="1">Preto</option>
+        <option value="2">Prata</option>
+        <option value="3">Azul</option>
+        <option value="4">Vermelho</option>
+    </select>
+    <br><br>
+    <button onclick="avaliar()">Será que ele gosta?</button>
+    <div id="div_mensagem"></div>
+</html>
+<script>
+
+    function avaliar(){
+        var tamanho = Number(input_tamanho.value)
+        var cor = Number(select_cor.value)    
+        
+        if(tamanho > 6.5 && (cor == "1" || cor == "2")){
+            div_mensagem.innerHTML = `<img src="https://th.bing.com/th/id/R.73c92e84cf83e221aa4c51313ebb7ab8?rik=8zv556PgPc%2bNJQ&pid=ImgRaw&r=0" alt="">`
+        }else{
+            div_mensagem.innerHTML = `<img src="https://as2.ftcdn.net/v2/jpg/03/24/38/15/1000_F_324381563_v3pyYrbPYXupGaQqcA34wsbwIh3ZsBHd.jpg" alt="">`
+        }
+    }
+
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe qual número será iniciado:
+    <input type="text" id="input_inicial"> <br><br>
+    Informe qual o número será finalizado:
+    <input type="text" id="input_final"> <br><br>
+    <button onclick="analisar()">Curto 3 e 5</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<Script>
+
+function analisar(){
+
+    var inicial = Number(input_inicial.value)
+    var final = Number(input_final.value)    
+    var mensagem = ""
+    var contador = inicial
+
+    if(inicial < final){
+    while(contador < final){
+        contador ++
+        if((contador % 3 == 0) && (contador % 5  == 0) ){
+            mensagem += `É TRI! É PENTA! <br>`
+        }else if ((contador % 5) == 0){
+            mensagem += `É PENTA! <br>`
+        }else if((contador % 3) == 0){
+            mensagem += `É TRI! <br>`
+        }else{
+            mensagem +=`${contador} <br>`
+        }
+        
+        
+    }
+    }else{
+        alert(`Coloque um número inicial maior que o final!!!`)
+    }
+    div_mensagem.innerHTML = mensagem
+}
+
+</Script>
