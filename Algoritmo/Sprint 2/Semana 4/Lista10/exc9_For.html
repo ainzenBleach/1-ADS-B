@@ -19,23 +19,19 @@
 function pares(){
     var numero_inicial = Number(input_numero_inicial.value)
     var numero_final = Number(input_numero_final.value)
-    var contar = numero_inicial
-
+    
     if (numero_inicial < numero_final && numero_inicial > 0 && numero_final > 0 ){
-
-        while(contar < numero_final){
-
-            contar ++
-
-            var resto = contar % 2
+        for (var contar = numero_inicial; contar <= numero_final;  contar ++){
+        var resto = contar % 2
 
             if(resto == 0){
                 div_mensagem.innerHTML += `${contar} <br>`
             }
-            
         }
-    }else(
-    alert(`Coloque um número maior que zero ou um número inicial maior que o final`)    
-)
+
+    }else{
+    alert(`Coloque um número maior que zero ou um número incial maior que o final`)    
 }
+}
+
 </script>

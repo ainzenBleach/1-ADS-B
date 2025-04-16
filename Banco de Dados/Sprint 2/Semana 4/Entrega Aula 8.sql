@@ -1,4 +1,5 @@
 create database aula8;
+create database aula8;
 use aula8;
 
 CREATE TABLE projeto (

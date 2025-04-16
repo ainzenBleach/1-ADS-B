@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantas Coca-Colas voê já tomou na vida?:
+    <input type="text" id="input_coca"> <br><br>
+    <button onclick="ver()">Ver a quantidade</button>
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+<script>
+
+function ver(){
+    var coca = Number(input_coca.value)
+    var mensagem = ``
+    for(var contador = 1; contador < coca; contador ++){
+        mensagem += `<img src="https://static3.tcdn.com.br/img/img_prod/894708/refrigerante_coca_cola_tradicional_lata_310_ml_2281_1_b37e858871cd40261b351f7692fc677b.jpg" alt="" width="100px" > <br>`
+    }
+    div_mensagem.innerHTML = mensagem
+}
+
+</script>

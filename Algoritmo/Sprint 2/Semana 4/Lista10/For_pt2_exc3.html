@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantas pessoas vão entrar no carro?:
+    <input type="text" id="input_pessoa"> <br><br>
+    Quantos lugares tem no carro?:
+    <input type="text" id="input_lugar"> <br><br>
+    <button onclick="partiu()">#Partiu Carona</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+function partiu(){
+    var pessoa = Number(input_pessoa.value)
+    var lugar = Number(input_lugar.value)
+    var mensagem = ``
+    if(lugar < pessoa){
+    for (var contador = 1; contador <= pessoa; contador++){
+
+    if(contador == 1){
+        mensagem += `Entrou o 1º passageiro (que é o(a) motorista) <br>`
+    }
+    else if(contador > 1 && contador <= lugar){
+        mensagem += `Entrou o ${contador}º passageiro <br>`
+    } else{
+        mensagem += `O ${contador}º passageiro terá que esperar! <br>`
+    }
+
+}
+}else{
+    alert(`Ponha mais lugar nesse veículo!!!!!!!`)
+}
+    div_mensagem.innerHTML = mensagem
+}
+
+
+</script>

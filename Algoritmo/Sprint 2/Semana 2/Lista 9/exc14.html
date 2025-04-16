@@ -20,7 +20,8 @@ function exibir(){
     var mensagem =  ""
 
     if(musculacao <= 30 && musculacao > 0){
-        while (contador < 30 && contador > 1){
+        while (contador < 30 && musculacao > 1){
+            
             contador ++
 
             if(1 == (contador % musculacao) ){
@@ -35,7 +36,7 @@ function exibir(){
                 contador ++
                     mensagem += `Dia ${contador} - Musculação <br>`
             }
-    }
+        }
     }else{
         alert(`Informe um valor entre 2 e 30`)
     }

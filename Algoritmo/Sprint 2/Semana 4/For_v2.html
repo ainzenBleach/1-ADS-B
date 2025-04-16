@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="contar()">Contar</button>
+    <div id="div_contagem"></div>
+</body>
+</html>
+<script>
+
+    function contar(){
+
+        var mensagem = ``
+
+        // Delimitação por ";", primeiro bloco executado somente um vez e no começo na variavel
+        // o bloco 2 e 3 acontececem repetidamente, com o dois checando se ainda é "true" e o três ocorre
+        // depois do comando dentro das "{}" é executado.
+        
+        for (var contador = 0; contador < 10; contador++){
+            mensagem += `${contador} <br>`
+        }
+
+        div_contagem.innerHTML = mensagem
+    }
+
+</script>

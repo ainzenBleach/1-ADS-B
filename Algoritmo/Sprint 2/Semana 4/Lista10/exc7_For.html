@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,22 +17,21 @@
 <script>
 
 function calcular(){
-    var contar = 0
+    var mensagem = ``
     var numero = Number(input_numero.value)
-    div_mensagem.innerHTML = ``
+    var resto = 0
+
     if (numero >= 0 && numero <= 200){
-        while(contar < numero){
 
-            contar ++
-            var resto = contar % 7
-
+        for(var contar = 1; contar <= numero; contar ++){
+            resto = contar % 7
             if(resto == 0){
-                div_mensagem.innerHTML += `${contar} <br>`
+                mensagem += `${contar} <br>`
             }
-            
         }
     }else(
     alert(`Coloque um número entre 0 e 200`)    
 )
+    div_mensagem.innerHTML = mensagem
 }
 </script>

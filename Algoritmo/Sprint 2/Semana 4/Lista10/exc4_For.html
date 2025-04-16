@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="par()">S2 Pares</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+function par(){
+    var resto = 0
+    var mensagem = ``
+    
+    for(var contar = 0; contar <= 100; contar ++){
+        resto = contar % 2
+        if(resto == 0){
+            mensagem += `${contar} <br>`
+        }
+    }
+    div_mensagem.innerHTML = mensagem
+}
+
+</script>

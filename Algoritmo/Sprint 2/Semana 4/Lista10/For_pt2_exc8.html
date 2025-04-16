@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantos depósitos você fez no banco?:
+    <input type="text" id="input_deposito"> <br><br>
+    Quanto foi o valor de cada deposito?:
+    <input type="text" id="input_valor"> <br><br>
+    <button onclick="acompanhar()"> Acompanhar grana </button>
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+<script>
+
+function acompanhar(){
+    var deposito = Number(input_deposito.value)
+    var valor = Number(input_valor.value)
+    var mensagem = ``
+    var total = 0
+    
+
+    for(var contador = 1; contador <= deposito; contador ++){
+        var resto = contador % 3
+
+        if(resto != 0){
+            total = total + valor
+            mensagem += ` ${contador}º Mês: R$ ${total} <br>`
+            
+        }else{
+            total = (total + valor) * 1.01
+            mensagem += `${contador}º Mês: R$ ${total} <img src="https://imagepng.org/wp-content/uploads/2017/10/estrela-1.png" alt="" width="15px"> <br>`
+    }
+    }
+            mensagem += `Total guardado: R$${total}` 
+            div_mensagem.innerHTML = mensagem
+    }
+
+</script>

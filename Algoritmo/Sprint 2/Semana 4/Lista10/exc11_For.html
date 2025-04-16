@@ -21,7 +21,6 @@
     Até qual número a tabuda devera ser:
     <input type="text" id="input_numero"> <br><br>
     <button onclick="ver()">Ver tabuada</button>
-    
     <div id="div_mensagem"></div>
 </body>
 </html>
@@ -31,22 +30,17 @@ function ver(){
     var tabuada = Number(select_tabuada.value)
     var numero = Number(input_numero.value)
     var mensagem = ""
-    var contar = 0
     var resto = 0
-    div_mensagem.innerHTML = ``
 
-    while(contar < numero){
-        contar ++
+    for (var contar = 0; contar <= numero; contar++){
         resto = contar % 2 
         if(resto == "1"){
             mensagem += `<p style="color:red">${tabuada} X ${contar} = ${tabuada * contar}</p>`
         }else{
             mensagem += `<p style="color:blue">${tabuada} X ${contar} = ${tabuada * contar}</p>`
         }
-        
-
-        
     }
+
     div_mensagem.innerHTML = `${mensagem}`
 }
 

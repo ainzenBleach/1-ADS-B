@@ -28,16 +28,19 @@ insert into funcionarios_Aula8 (nome, fkSuperior) values
 select * from funcionarios_Aula8;
 
 -- select para o auto-relacionamento
-select funcionario.nome as Funcionario,
-Superior.nome as Superior from
-funcionarios_Aula8 as funcionario join 
-funcionarios_Aula8 as Superior on funcionario.fkSuperior = superior.idFuncionario;
+select 
+	funcionario.nome as Funcionario,
+	Superior.nome as Superior 
+from
+	funcionarios_Aula8 as funcionario join funcionarios_Aula8 as Superior 
+		on funcionario.fkSuperior = superior.idFuncionario;
 
-select funcionarios_Aula8.nome as "Nome do Funionário",
-superior.nome as "Nome do superior"
-from funcionarios_Aula8 join
-funcionarios_Aula8 as superior 
-on funcionarios_Aula8.fkSuperior = superior.idFuncionario;
+select 
+	funcionarios_Aula8.nome as "Nome do Funionário",
+	superior.nome as "Nome do superior"
+from 
+	funcionarios_Aula8 join funcionarios_Aula8 as superior 
+		on funcionarios_Aula8.fkSuperior = superior.idFuncionario;
 
 -- Criação da entidade fraca
 -- Depende da tabela funcionario para existir

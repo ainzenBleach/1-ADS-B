@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantas xícaras de café com leite ele já tomou na vida?:
+    <input type="text" id="input_cafe"> <br><br>
+    <button onclick="ver()">Ver a quantidade</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+function ver(){
+    var cafe = Number(input_cafe.value)
+    var mensagem = ``
+
+    mensagem += `Foram ${cafe} colheres com leite em pó e ${cafe * 2} colheres de café em pó. <br>`
+    for(var contador = 0; contador < cafe; contador++){
+        mensagem += `
+        <img src="https://th.bing.com/th/id/OIP.CMEa4JD17uFU_tSuZezpVAAAAA?w=135&h=207&c=7&r=0&o=5&pid=1.7" alt="" width="100px"> 
+        <img src="https://th.bing.com/th/id/OIP.CMEa4JD17uFU_tSuZezpVAAAAA?w=135&h=207&c=7&r=0&o=5&pid=1.7" alt="" width="100px"> 
+        <img src="https://lede.com.br/wp-content/uploads/2024/06/colher-carregando-punhado-de-leite-em-po-sobre-fundo-branco-e1718878166709.jpg" alt="" width="100px"> <br>
+        `
+    }
+
+    div_mensagem.innerHTML = mensagem
+}
+
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    linhas:
+    <input type="text" id="input_linha"> <br><br>
+    Caracteres:
+    <input type="text" id="input_carac"><br><br>
+    <button onclick="exibir()">Exibir matrix</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+    function exibir(){
+        var mensagem = ``
+        var qtd_Linha = Number(input_linha.value)
+        var qtd_Caractere= Number(input_carac.value)        
+
+
+        for (var linha = 1; linha <= qtd_Linha; linha ++) {
+            var frase = ``
+
+            for (var caractere = 1; caractere <= linha; caractere++) {
+                frase += `${linha}`
+            }
+            mensagem += `${frase} <br>`
+
+        }
+
+        div_mensagem.innerHTML = mensagem
+
+    }
+
+</script>
