@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira um valor max:
+    <input type="text" id="input_max"> <br>
+    Insira um valor min:
+    <input type="text" id="input_min"> <br>
+    <button onclick="gerar()">Gerar numero aleatorio</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+function gerar(){
+    // A função Math.random gera um número entre 1 e 0
+    // Podemos utilizad da seguinte forma para trabalhar co  números maiores
+    // Math.radon() * intervalo entre o min e max + o min
+    // Math.floor - joga o número para o inteiro mais baixo
+    // parseint - Conta as casas decimais
+
+    var max = Number(input_max.value)
+    var min = Number(input_min.value)
+    if((max > min) && max != 0 && min != 0){
+    var mensagem = ``
+    var intervalo = max - min
+    var aleatorio = Math.random()
+
+    var sorteado = aleatorio
+    var numero_10 = aleatorio * 10
+    var numero_intervalo = aleatorio * intervalo + min
+    var numero_max = aleatorio * max
+    var inteiro = aleatorio * 10
+    var numero_parseint = parseInt(aleatorio * (intervalo + 1) + min)
+
+    mensagem = `
+                Numero sorteado: ${sorteado} <br>
+                Numero até 10: ${numero_10} <br>
+                Numero entre o intervalo: ${numero_intervalo} <br>
+                Numero até o máximo: ${numero_max} <br>
+                Numero inteiro: ${inteiro} <br>
+                Numero parseint: ${numero_parseint}
+                `
+
+    div_mensagem.innerHTML = mensagem
+    } else {
+        alert(`Numero no max tem que ser maior que o min`)
+    }
+}
+
+</script>

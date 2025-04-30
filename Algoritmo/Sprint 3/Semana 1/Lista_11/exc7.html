@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <button onclick="sortear()">Quero um número cabalístico!</button> 
+   <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+function sortear(){
+    var aleatorio = parseInt(Math.random() * -14 + 15)
+    var mensagem = ``
+
+    if(aleatorio == 3 || aleatorio == 4 || aleatorio == 7 || aleatorio == 10 || aleatorio == 12) {
+        mensagem = `${aleatorio} <br> Eu S2 números cabalísticos!`
+    }else{
+         mensagem = `${aleatorio} <br> Ah, me dá um número bom na próxima!`
+    }
+    div_mensagem.innerHTML = mensagem
+}
+
+</script>

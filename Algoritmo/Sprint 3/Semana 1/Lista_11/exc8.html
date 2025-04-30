@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="nota_aluno()">Gerar uma nota de aluno entre 0 e 10</button> <br>
+    <button onclick="freque_aluno()">Gerar uma frequência de aluno entre 0 e 100</button> <br>
+    <button onclick="ver()">Ver Situação</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+var nota = 0
+var freque = 0
+
+function nota_aluno(){
+    var aleatorio = Math.random().toFixed(3) * 10
+    nota = aleatorio
+    alert(`Nota gerada`)
+}
+
+function freque_aluno(){
+    var aleatorio = Math.random().toFixed(4) * 100
+    freque = aleatorio
+    alert(`Frequência gerada`)
+}
+
+function ver(){
+    alert(`O aluno tem de Nota: ${nota} e de Frequência: ${freque}`);
+}
+
+</script>

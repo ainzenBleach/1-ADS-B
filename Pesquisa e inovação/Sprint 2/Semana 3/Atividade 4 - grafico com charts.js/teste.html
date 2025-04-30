@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <canvas id="grafico_linha"></canvas>
+    </div>
+    <div>
+        <canvas id="grafico_barra"></canvas>
+    </div>
+
+</body>
+<script>
+    const linha = document.getElementById(grafico_linha)
+
+    new Chart(linha,{
+        type: 'line',
+        data:{
+            labels: ['12:00','','','','']
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="sortear()">Sortear momento do dia</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+function sortear(){
+    var aleatorio = parseInt(Math.random() * -23 + 23)
+    var mensagem = ``
+    
+    if(aleatorio <= 11){
+        mensagem = `Bom dia, flor do dia, são ${aleatorio}h`
+    }else if(aleatorio <= 17){
+        mensagem = `Boa tarde, já vai tarde! São ${aleatorio}h`
+    }else{
+        mensagem = `"Boa noite, durma bem! São ${aleatorio}h`
+    }
+
+    div_mensagem.innerHTML = mensagem 
+}
+
+</script>

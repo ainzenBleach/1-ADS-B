@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="jogar()">Jogar jo ken po</button>
+    <div id="div_mensagem"></div>
+    <div id="jogador1"></div>
+</body>
+</html>
+<script>
+    var vitoria1 = 0
+    var vitoria2 = 0
+
+function jogar(){
+    var jogador1 = Math.random().toFixed(2)
+    var jogador2 = Math.random().toFixed(2)  
+    var jogada1 = 0
+    var jogada2 = 0
+    
+
+    var mensagem = ``
+
+    if(jogador1 < 0.3){
+        mensagem = `<img src="https://tse2.mm.bing.net/th/id/OIP.uUQSKoTw6nzhM0YZVHVJ3gAAAA?rs=1&pid=ImgDetMain" alt=""  width="200px">`
+        jogada1 = 1
+    }else if(jogador1 < 0.6){
+        mensagem = `<img src="https://freddydanilo.github.io/jogo-pedra-papel-tesoura/assets/paper.png" alt="" width="200px">`
+        jogada1 = 2
+    }else{
+        mensagem = `<img src="https://analuizacosta08.github.io/Pedra-Papel-Tesoura/assets/scissor.png" alt="" width="200px">`
+        jogada1 = 3
+    }
+
+    if(jogador2 < 0.3){
+        jogada2 = 1
+    }else if(jogador2 < 0.6){
+        jogada2 = 2
+    }else{
+        jogada2 = 3
+    }
+
+    if(jogada1 == jogada2){
+        mensagem = `
+        <br> Empate <br>
+        Jogador 1: ${vitoria1} vitória(s) <br>
+
+        Jogador 2: ${vitoria2} vitória(s) 
+        `
+    }else if(jogada1 == 1 && jogada2 == 2){
+        vitoria2++
+        mensagem += `
+        <img src="https://freddydanilo.github.io/jogo-pedra-papel-tesoura/assets/paper.png" alt="" width="200px">
+        
+        <br> O jogador 2 venceu <br>
+        Jogador 1: ${vitoria1} vitória(s) <br>
+
+        Jogador 2: ${vitoria2} vitória(s) 
+        `
+    }else if(jogada1 == 2 && jogada2 == 3){
+        vitoria2++
+        mensagem += `
+        <img src="https://analuizacosta08.github.io/Pedra-Papel-Tesoura/assets/scissor.png" alt="" width="200px">
+        
+        <br> O jogador 2 venceu <br>
+        Jogador 1: ${vitoria1} vitória(s) <br>
+
+        Jogador 2: ${vitoria2} vitória(s) 
+        `
+    }else if(jogada1 == 3 && jogada2 == 1){
+        vitoria2++
+        mensagem += `
+        <img src="https://tse2.mm.bing.net/th/id/OIP.uUQSKoTw6nzhM0YZVHVJ3gAAAA?rs=1&pid=ImgDetMain" alt=""  width="200px">
+        
+        <br> O jogador 2 venceu <br>
+        Jogador 1: ${vitoria1} vitória(s) <br>
+
+        Jogador 2: ${vitoria2} vitória(s) 
+        `
+    }else{
+        vitoria1++
+        if(jogada2 == 1){
+            mensagem += `<img src="https://tse2.mm.bing.net/th/id/OIP.uUQSKoTw6nzhM0YZVHVJ3gAAAA?rs=1&pid=ImgDetMain" alt=""  width="200px">`
+        }else if(jogada2 == 2){
+            mensagem += `<img src="https://freddydanilo.github.io/jogo-pedra-papel-tesoura/assets/paper.png" alt="" width="200px">`
+        }else{
+            mensagem += `<img src="https://analuizacosta08.github.io/Pedra-Papel-Tesoura/assets/scissor.png" alt="" width="200px">`
+        }
+        mensagem += `
+        <br> O jogador 1 vendeu <br>
+        Jogador 1: ${vitoria1} vitória(s) <br>
+
+        Jogador 2: ${vitoria2} vitória(s) 
+        `
+    }
+
+    div_mensagem.innerHTML = mensagem
+}
+
+
+</script>

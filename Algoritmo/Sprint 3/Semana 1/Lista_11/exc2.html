@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="sortear()">Sortear time</button>
+    <div id="div_mensagem"></div>
+   
+</body>
+</html>
+<script>
+
+function sortear(){
+    var aleatorio = Math.random()
+    var mensagem = ``
+     if(aleatorio < 0.25){
+        mensagem = `<img src="https://tse1.mm.bing.net/th/id/OIP.ZALeqR0j9sH9uIZIk5q72wHaHa?rs=1&pid=ImgDetMain" alt="" width="150px">`
+     }else if(aleatorio < 0.5){
+        mensagem = `<img src="https://tse3.mm.bing.net/th/id/OIP.GSaf8NUtfEhEVs4b0yEJwQHaEo?rs=1&pid=ImgDetMain" alt="" width="150px">`
+     }else if(aleatorio < 0.75){
+        mensagem = `<img src="https://th.bing.com/th/id/OIP.AO2R-20aNmBJ7vUzW2W_9gHaHa?rs=1&pid=ImgDetMain" alt="" width="150px">`
+     }else{
+        mensagem = ` <img src="https://tse4.mm.bing.net/th/id/OIP.pL7Iswmon3HmctmUr18FPwHaHG?rs=1&pid=ImgDetMain" alt="" width="150px">`
+     }
+     div_mensagem.innerHTML = mensagem
+}
+
+</script>

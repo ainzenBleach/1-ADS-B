@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="gerar_Nota()">Gerar uma nota de aluno entre 3 e 10</button> <br>
+    <button onclick="gerar_freq()">Gerar uma frequência de aluno entre 50 e 100</button> <br>
+    <button onclick="ver()">Ver Aprovação</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+var nota = 0
+var freque = 0
+var status = ``
+
+function gerar_Nota(){
+    var aleatorio = Math.random().toFixed(1) * -7 + 10
+    nota = aleatorio
+    alert(`Nota gerada`)
+}
+
+function gerar_freq(){
+    var aleatorio = Math.random().toFixed(2) *-70 + 100
+    freque = aleatorio
+    alert(`Frequência gerada`)
+}
+
+function ver(){
+    var mensagem = ``
+    if(nota > 6 && freque > 75){
+        status = `Aprovado`
+    }else{
+        status = `Reprovado`
+    }
+
+    mensagem = `Com nota ${nota} e frequência ${freque}, o aluno está ${status}!`
+
+    div_mensagem.innerHTML = mensagem
+}
+
+</script>
