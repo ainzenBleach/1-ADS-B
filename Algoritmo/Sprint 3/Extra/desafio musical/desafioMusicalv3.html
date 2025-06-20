@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Press+Start+2P&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+/*Configuração do site completo*/
+*{
+margin: 0px;
+padding: 0px;
+font-family: 'Press Start 2P', monospace;;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #3984FB; */
+  background-image: url(https://pa1.aminoapps.com/6904/0cb931dfc4ef79fb10671a645be30491d8bb9393r1-540-183_hq.gif);
+  background-repeat: no-repeat;
+  background-size: cover;      
+  background-position: center;  
+  background-attachment: fixed;
+}
+/* Configuração do painel principal */
+.principal{
+    display: flex;
+    border-radius: 3px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 750px;
+    padding: 10px;
+    margin-top: 10vh;
+}
+.interacao{
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* Configuração dos botões das funções */
+.campo_botao{
+margin: 10px;
+width:850px;
+display: flex;
+justify-content: space-evenly;
+border: solid 2px white;
+padding: 10px;
+background-color: #3B86FF;
+}
+
+.botao_header{
+    color: #F1FAEE;
+    border: solid 2px white;
+    font-size: 10px;
+    height: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.2s;
+    background-color: rgb(230, 57, 70, 0.6);
+    box-shadow: 2px 3px 0px black;
+
+}
+
+.botao_header:hover{
+transform: translateY(-3px);
+box-shadow: 2px 5px 0px black;
+border-bottom: solid 2px #E63946 ;
+background-color: #E3000F;
+}
+
+.ativo{
+    background-color: #E3000F;
+    transform: translateY(-3px);
+}
+
+.campo_input{
+    display: flex;
+    flex-direction: column;
+    width: 750px;
+}
+.campo_input div{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+/* Configuração do painel e das telas */
+.painel{
+    padding-bottom: 10px;
+    
+}
+
+.adicionar span{
+    align-self: flex-start;
+    color: white;
+    margin-top: 5px;
+    transition: 0.3s;
+    font-size: 16px;
+    padding-bottom: 7px;
+}
+
+.adicionar input{
+    border: solid 3px black;
+    text-align: center;
+    margin-bottom: 5px;
+    width: 280px;
+    height: 18px;
+}
+
+.adicionar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 850px;
+    border: solid 2px white;
+    padding: 10px;
+    background-color: #1D6EE4;
+    box-shadow: 2px 3px 0px black;
+}
+.adicionar label{
+    display: flex;
+    cursor: auto;
+    flex-direction: column;
+    align-items: start;
+}
+
+
+#duracao{
+    display: flex;
+    justify-content: space-between;
+    width: 280px;
+}
+
+
+/* Configuração do painel e das telas - Remover  */
+
+.remover span{
+    align-self: flex-start;
+    color: white;
+    margin-top: 5px;
+    transition: 0.3s;
+    font-size: 16px;
+    padding-bottom: 7px;
+}
+
+.remover input{
+    border: solid 3px black;
+    text-align: center;
+    margin-bottom: 5px;
+    width: 280px;
+    height: 18px;
+}
+
+.remover{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 850px;
+    border: solid 2px white;
+    padding: 10px;
+    background-color: #1D6EE4;
+    box-shadow: 2px 3px 0px black;
+}
+.remover label{
+    display: flex;
+    cursor: auto;
+    flex-direction: column;
+    align-items: start;
+}
+
+/* Configuração do painel e das telas - Atualizar  */
+
+.atualizar span{
+    align-self: flex-start;
+    color: white;
+    margin-top: 5px;
+    transition: 0.3s;
+    font-size: 16px;
+    padding-bottom: 7px;
+}
+
+.atualizar input{
+    border: solid 3px black;
+    text-align: center;
+    margin-bottom: 5px;
+    width: 280px;
+    height: 18px;
+}
+
+.atualizar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 850px;
+    border: solid 2px white;
+    padding: 10px;
+    background-color: #1D6EE4;
+    box-shadow: 2px 3px 0px black;
+}
+
+.atualizar div{
+    display: flex;
+    justify-content: space-between;
+}
+.atualizar label{
+    display: flex;
+    cursor: auto;
+    flex-direction: column;
+    align-items: start;
+}
+
+/* Configuração do painel e das telas - Procurar  */
+.procurar span{
+    align-self: flex-start;
+    color: white;
+    margin-top: 5px;
+    transition: 0.3s;
+    font-size: 16px;
+    padding-bottom: 7px;
+}
+
+.procurar input{
+    border: solid 3px black;
+    text-align: center;
+    margin-bottom: 5px;
+    width: 280px;
+    height: 18px;
+}
+
+.procurar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 850px;
+    border: solid 2px white;
+    padding: 10px;
+    background-color: #1D6EE4;
+    box-shadow: 2px 3px 0px black;
+}
+.procurar label{
+    display: flex;
+    cursor: auto;
+    flex-direction: column;
+    align-items: start;
+}
+
+
+
+#div_mensagem{
+    margin-top: 20px;
+    width: 1050px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card{
+    background-color: #1D6EE4;
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+    width: 450px;
+    padding: 15px;
+    border: solid 4px white;
+    box-shadow: 3px 4px 0px black;
+}
+.card h3{
+color: white;
+}
+
+.card span{
+color: gold;
+
+}
+
+.card div{
+margin: 5px;
+display: flex;
+justify-content: space-between;
+}
+
+.integrante{
+    display: flex;
+    flex-direction: column;
+}
+
+.integrante span{
+    margin-top: 10px;
+}
+/* configurações dos botões */
+.botao_header{
+    color: #F1FAEE;
+    border: solid 2px white;
+    font-size: 10px;
+    height: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.2s;
+    background-color: rgb(230, 57, 70, 0.6);
+    box-shadow: 2px 3px 0px black;
+
+}
+
+.button_act{
+    width: 250px;
+    height: fit-content;
+    font-size: 16px;
+    margin-top: 4.5vh;
+    cursor: pointer;
+    color: white;
+    padding: 5px;
+    border: solid 2px white;
+    background-color: rgb(230, 57, 70, 1);
+    box-shadow: 2px 3px 0px black;
+    transition: 0.3s;
+}
+.button_act:hover{
+transform: translateY(-3px);
+box-shadow: 2px 5px 0px black;
+border-bottom: solid 2px #E63946 ;
+background-color: #E3000F;
+}
+
+.button_lista{
+    width: 875px;
+    padding: 10px;
+    height: fit-content;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    border: solid 2px white;
+    background-color: rgb(230, 57, 70, 1);
+    box-shadow: 2px 3px 0px black;
+    transition: 0.3s;
+    animation: balanço 3s infinite;
+}
+.button_lista:hover{
+transform: translateY(-5px);
+scale: 1.03;
+box-shadow: 2px 7px 0px black;
+border-bottom: solid 2px #E63946 ;
+background-color: #E3000F;
+}
+
+@keyframes balanço {  
+  0%, 100%{ transform: rotate(1deg); }  
+  50%{ transform: rotate(-1deg); }  
+}
+
+.sair{
+    animation: sair 1.5s;
+}
+
+@keyframes sair{
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.entrar{
+    animation: entrar 1.5s;
+}
+
+@keyframes entrar{
+    100% {opacity: 1;}
+    0% {opacity: 0;}
+}
+
+.conteudo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ativo {
+    background-color: #E3000F;
+    
+}
+
+.iniciar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.iniciar button{
+    width: 450px;
+    padding: 10px;
+    height: fit-content;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    border: solid 2px white;
+    background-color: rgb(230, 57, 70, 1);
+    box-shadow: 2px 3px 0px black;
+    transition: 0.3s;
+    animation: balanço 3s infinite;
+}
+
+.iniciar button:hover{
+transform: translateY(-5px);
+scale: 1.03;
+box-shadow: 2px 7px 0px black;
+border-bottom: solid 2px #E63946 ;
+background-color: #E3000F;
+}
+
+.iniciar button:active{
+scale: 1.1;
+transition: 0.3s;
+}
+
+</style>
+<body>
+    <div class="iniciar" id="iniciar"> <button onclick="play()">Play</button></div>
+    <div class="conteudo" id="conteudo" style="display: none;">
+        <div id="container" class="principal">
+            <div class="interacao">
+                <div class="campo_botao" style="background-color: #1D6EE4; box-shadow: 2px 3px 0px black;">
+                    <button class="botao_header ativo" id="Adicionar_musica" onclick="mudar_adicionar()"> Adicionar musica</button>
+                    <button class="botao_header" id="Remover_musica" onclick="mudar_remover()">Remover musica</button>
+                    <button class="botao_header" id="Atualizar_musica" onclick="mudar_atualizar()">Atualizar musica</button>
+                    <button class="botao_header" id="Procurar_integrante" onclick="mudar_procurar()">Procurar integrante</button>
+                </div>
+    
+                <div class="painel">
+                    <div class="painel adicionar" id="div_adicionar" >
+                        
+                <div class="campo_input">
+                    <div>
+                        <label id="label_adicionar_1">
+                        <span id="span_adicionar_1">Titúlo:</span>
+                        <input type="text" id="musica_titulo">
+                        </label>
+    
+                        <label id="label_adicionar_2">
+                        <span id="span_adicionar_2">Banda:</span>
+                        <input type="text" id="musica_banda"> 
+                        </label>
+                    </div>
+                    <div>
+                                <label id="label_adicionar_3" >
+                        <span id="span_adicionar_3">Duração:</span>
+                        <div id="duracao">
+                            <input type="number" id="musica_duracao_minutos"  placeholder="Min" class="duracao" style="width: 130px;">
+                            <input type="number" id="musica_duracao_segundos" placeholder="Seg" class="duracao" style="width: 130px;">
+                        </div>
+                        </label>
+    
+                        <label id="label_adicionar_4">
+                        <span id="span_adicionar_4">Ano de lançamento:</span> 
+                        <input type="date" id="musica_anoLancamento"> 
+                        </label>
+                    </div>
+                            <div>
+                         <label id="label_adicionar_5">
+                        <span id="span_adicionar_5">Avaliação:</span>
+                        <input type="text" id="musica_avaliacoes"> 
+                        </label>
+    
+                        <label id="label_adicionar_6">
+                        <span id="span_adicionar_6">Integrantes:</span>
+                        <input type="text" id="musica_integrantes"> 
+                        </label>
+                        </div>
+                            </div>
+                        
+                        <button onclick="adicionar()" class="button_act">Adicionar música</button>
+                    </div>
+                    <div class="painel remover" id="div_remover" style="display: none;">
+                        <label id="label_remover_1">
+                        <span  id="span_remover_1">Nome da musica</span>
+                        <input type="text" id="musica_remover">
+                        </label>
+                        <button onclick="remover()" class="button_act">Remover música:</button>
+                    </div>
+                    <div class="painel atualizar" id="div_AnoLancamento" style="display: none;">
+                        <div style="    width: 850px; display: flex;
+        justify-content: space-around;
+        flex-direction: row;">
+                        <label id="label_atualizar_1">
+                            <span id="span_atualizar_1">Nome da música:</span>
+                            <input type="text" id="musica_titulo_atualizar">
+                        </label>
+                        <label id="label_atualizar_2">
+                            <span id="span_atualizar_2">Nova data:</span>
+                            <input type="date" id="musica_atualizar_Ano">
+                        </label>
+                        </div>
+                        <button onclick="atualizar()" class="button_act">atualizar</button>
+                    </div>
+                    <div class="painel procurar" style="display: none;" id="div_integrante">
+                        <label id="label_procurar_1">
+                            <span id="span_procurar_1">Nome do integrante:</span>
+                            <input type="text" id="musica_porucurar_integrante">
+                        </label>
+                        <button onclick="procurar()" class="button_act">Buscas integrante</button>
+                    </div>
+                </div>
+            </div>
+            <button onclick="listarMusisa()" class="button_lista">Listar a musica</button>
+            
+        </div>
+        <div id="div_mensagem" class="mensagem">
+            
+        </div>
+    </div>
+</body>
+</html>
+<script>
+
+let listaMusica = []
+
+function play(){
+    const conteudo = document.getElementById("conteudo")
+    const iniciar = document.getElementById("iniciar")
+    
+    iniciar.classList.add("sair")
+    
+    setTimeout(() => {
+    iniciar.style.display = "none"
+    conteudo.classList.add("entrar")
+    conteudo.style.display = "flex"
+    conteudo.style.flexDirection = "column"
+    conteudo.style.alignItems = "center" 
+    }, 1500)
+
+
+}
+
+function listarMusisa(){
+    
+    const div_mensagem = document.getElementById("div_mensagem")
+    let mensagem = ``
+    let media_avaliacao = 0
+    let integrante = ``
+    for(let i = 0; i < listaMusica.length; i++){
+
+    for(let x = 0; x < listaMusica[i].listaAvaliacao.length; x++){
+        media_avaliacao += Number(listaMusica[i].listaAvaliacao[x])
+    
+    }
+
+    for(let x = 0; x < listaMusica[i].listaIntegrantes.length; x++){
+        integrante += `${listaMusica[i].listaIntegrantes[x]}`
+    }
+    media_avaliacao = media_avaliacao / listaMusica[i].listaAvaliacao.length
+
+    mensagem += `
+
+    <div class="card musica">
+            <div>
+                <h3> ${listaMusica[i].titulo}</h3>
+            </div>
+            <div>
+                <span>Banda:</span>
+                <span>${listaMusica[i].banda}</span>
+            </div>
+            <div>
+                <span>Lançamento:</span>
+                <span>${listaMusica[i].anoLancamento}</span>
+            </div>
+            <div>
+                <span>Duração:</span>
+                <span>${listaMusica[i].duracao}</span>
+            </div>
+            <div>
+            <span>Nota:</span>
+            <span>${media_avaliacao.toFixed(1)} <img src="estrela-removebg-preview.png" alt="" style="width: 25px"></span>
+            </div>
+            <div class="integrante">
+               <span style="margin: 0px;">Integrantes:</span>
+               <span>${integrante}</span>
+            </div>
+        </div>
+    
+    `
+
+}    
+    div_mensagem.innerHTML = mensagem
+}
+
+// configuração dos botões para mudar o painel
+
+function mudar_adicionar(){
+const Adicionar_musica = document.getElementById("Adicionar_musica")
+const Atualizar_musica = document.getElementById("Atualizar_musica")
+const Remover_musica = document.getElementById("Remover_musica")
+const Procurar_integrante = document.getElementById("Procurar_integrante")
+
+const div_adicionar = document.getElementById("div_adicionar")
+const div_remover = document.getElementById("div_remover") 
+const div_AnoLancamento = document.getElementById("div_AnoLancamento")
+const div_integrante = document.getElementById("div_integrante")
+
+
+Adicionar_musica.classList.add("ativo")
+Atualizar_musica.classList.remove("ativo")
+Remover_musica.classList.remove("ativo")
+Procurar_integrante.classList.remove("ativo")
+
+div_adicionar.style.display = "flex"
+div_remover.style.display = "none"
+div_AnoLancamento.style.display = "none"
+div_integrante.style.display = "none"
+}
+
+function mudar_remover(){
+const Adicionar_musica = document.getElementById("Adicionar_musica")
+const Atualizar_musica = document.getElementById("Atualizar_musica")
+const Remover_musica = document.getElementById("Remover_musica")
+const Procurar_integrante = document.getElementById("Procurar_integrante")
+
+const div_adicionar = document.getElementById("div_adicionar")
+const div_remover = document.getElementById("div_remover") 
+const div_AnoLancamento = document.getElementById("div_AnoLancamento")
+const div_integrante = document.getElementById("div_integrante")
+
+Adicionar_musica.classList.remove("ativo")
+Atualizar_musica.classList.remove("ativo")
+Remover_musica.classList.add("ativo")
+Procurar_integrante.classList.remove("ativo")
+
+div_adicionar.style.display = "none"
+div_remover.style.display = "flex"
+div_AnoLancamento.style.display = "none"
+div_integrante.style.display = "none"
+}
+
+function mudar_atualizar(){
+const Adicionar_musica = document.getElementById("Adicionar_musica")
+const Atualizar_musica = document.getElementById("Atualizar_musica")
+const Remover_musica = document.getElementById("Remover_musica")
+const Procurar_integrante = document.getElementById("Procurar_integrante")
+
+const div_adicionar = document.getElementById("div_adicionar")
+const div_remover = document.getElementById("div_remover") 
+const div_AnoLancamento = document.getElementById("div_AnoLancamento")
+const div_integrante = document.getElementById("div_integrante")
+
+Adicionar_musica.classList.remove("ativo")
+Atualizar_musica.classList.add("ativo")
+Remover_musica.classList.remove("ativo")
+Procurar_integrante.classList.remove("ativo")
+
+div_adicionar.style.display = "none"
+div_remover.style.display = "none"
+div_AnoLancamento.style.display = "flex"
+div_integrante.style.display = "none"
+}
+
+function mudar_procurar(){
+const Adicionar_musica = document.getElementById("Adicionar_musica")
+const Atualizar_musica = document.getElementById("Atualizar_musica")
+const Remover_musica = document.getElementById("Remover_musica")
+const Procurar_integrante = document.getElementById("Procurar_integrante")
+
+const div_adicionar = document.getElementById("div_adicionar")
+const div_remover = document.getElementById("div_remover") 
+const div_AnoLancamento = document.getElementById("div_AnoLancamento")
+const div_integrante = document.getElementById("div_integrante")
+
+Adicionar_musica.classList.remove("ativo")
+Atualizar_musica.classList.remove("ativo")
+Remover_musica.classList.remove("ativo")
+Procurar_integrante.classList.add("ativo")
+
+div_adicionar.style.display = "none"
+div_remover.style.display = "none"
+div_AnoLancamento.style.display = "none"
+div_integrante.style.display = "flex"
+}
+
+// configuração dos paineis das ações
+
+function adicionar(){
+const titulo = String(musica_titulo.value)
+const banda = String(musica_banda.value)
+const duracaoMin = Number(musica_duracao_minutos.value)
+const duracaoSeg = Number(musica_duracao_segundos.value)
+const anoLancamento = musica_anoLancamento.value
+const avaliacoes = musica_avaliacoes.value
+const integrantes = musica_integrantes.value
+
+let listaAvaliacao = avaliacoes.split(",")
+let listaIntegrantes = integrantes.split(",")
+let duracao = (`${duracaoMin}min ${duracaoSeg}seg`)
+
+const musica = {
+    titulo,
+    banda,
+    duracao,
+    anoLancamento,
+    listaAvaliacao,
+    listaIntegrantes
+}
+
+listaMusica.push(musica)
+
+}
+
+function remover(){
+    let mensagem = ``
+    let nomeMusica = musica_remover.value
+    let indice = -1
+
+    for(let i = 0; i < listaMusica.length; i++){
+        if(listaMusica[i].titulo == nomeMusica){
+            indice = i
+            break
+        }
+    }
+
+    if(indice != -1){
+        listaMusica.splice(indice, 1)
+        alert("removido")
+    }
+
+}
+
+function atualizar(){
+let mensagem = ``
+let nomeMusica = String(musica_titulo_atualizar.value)
+let atualizar_Ano = musica_atualizar_Ano.value
+let indice = -1
+
+    for(let i = 0; i < listaMusica.length; i++){
+        if(listaMusica[i].titulo == nomeMusica){
+            indice = i
+            break
+        }
+    }
+
+    if(indice != -1){
+        listaMusica[indice].anoLancamento = atualizar_Ano
+    }
+}
+
+function procurar(){
+const div_mensagem = document.getElementById("div_mensagem")
+let mensagem = ``
+let nomeIntegrante = String(musica_porucurar_integrante.value)
+let indice = -1
+
+    for(let i = 0; i < listaMusica.length; i++){
+        console.log(`entrou no for`)
+        let integrante = listaMusica[i].listaIntegrantes
+        console.log(integrante)
+        if(integrante.includes(nomeIntegrante)){
+            indice = i
+            break
+        }
+    }
+    let media_avaliacao = 0
+    let integrante = ``
+    for(let i = 0; i < listaMusica.length; i++){
+
+    for(let x = 0; x < listaMusica[i].listaAvaliacao.length; x++){
+        media_avaliacao += Number(listaMusica[indice].listaAvaliacao[x])
+    
+    }
+    
+    for(let x = 0; x < listaMusica[i].listaIntegrantes.length; x++){
+        integrante += `${listaMusica[indice].listaIntegrantes[x]}`
+    }
+    media_avaliacao = media_avaliacao / listaMusica[i].listaAvaliacao.length
+    
+    if(indice != -1){
+    mensagem += `
+    <div class="card musica">
+            <div>
+                <h3> ${listaMusica[i].titulo}</h3>
+            </div>
+            <div>
+                <span>Banda:</span>
+                <span>${listaMusica[i].banda}</span>
+            </div>
+            <div>
+                <span>Lançamento:</span>
+                <span>${listaMusica[i].anoLancamento}</span>
+            </div>
+            <div>
+                <span>Duração:</span>
+                <span>${listaMusica[i].duracao}</span>
+            </div>
+            <div>
+            <span>Nota:</span>
+            <span>${parseInt(media_avaliacao)}</span>
+            </div>
+            <div class="integrante">
+               <span style="margin: 0px;">Integrantes:</span>
+               <span>${integrante}</span>
+            </div>
+        </div>
+    `
+    alert("atualizado")
+
+
+    
+
+}
+
+    div_mensagem.innerHTML = mensagem
+}
+}
+
+
+</script>

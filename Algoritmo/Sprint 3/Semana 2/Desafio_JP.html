@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do produto: <br>
+    <input type="text" id="input_produto"> <br> <br>
+
+    Código do produto: <br>
+    <input type="text" id="input_codigo"> <br><br>
+    
+    Quantidade do produto: <br>
+    <input type="number" id="input_qtd"><br><br>
+
+    <button onclick="cadastrar()">Cadastrar Produto</button>
+    <button onclick="repor()">Repor Estoque</button>
+    <button onclick="vender()">Vender Produto</button>
+    <button onclick="exibir()">Exibir Relatório</button>
+    <button onclick="excluir()">Excluir item</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+var listaNome = []
+var listaCodigo = []
+var listaQtd = []
+var listaVendido = []
+
+function cadastrar(){
+
+var mensagem = ``
+var produto = input_produto.value
+var codigo = input_codigo.value
+var qtd = Number(input_qtd.value)
+var codigoRepetido = false
+
+for (var i = 0; i < listaCodigo.length; i++){
+
+    if(listaCodigo[i] == codigo){
+        codigoRepetido = true
+    }
+
+}
+
+if(qtd == null || codigo == null || produto == null){
+    mensagem = `Preencha todos os campos para registrar um novo produto`
+}else if(codigoRepetido == true){
+    mensagem = `Código de produto já existente`
+}else if(qtd < 10){
+    mensagem = `Insira até 10 unidades do produto`
+}else{
+    mensagem = `Produto ${produto} registrado com sucesso`
+
+    listaNome.push(produto)
+    listaCodigo.push(codigo)
+    listaQtd.push(qtd)
+    listaVendido.push(Number(0))
+}
+
+
+
+div_mensagem.innerHTML = mensagem
+}
+
+function repor(){
+    var mensagem = ``
+    var produto = input_produto.value
+    var codigo = input_codigo.value
+    var qtd = Number(input_qtd.value)
+    var validacaoCodigo = false
+    var validacaoNome = false
+    var indice = 0
+
+    for(var i = 0; i < listaCodigo.length; i++){
+        if(listaCodigo[i] == codigo){
+            validacaoCodigo = true
+            indice = i
+        }
+
+        if(listaNome[i] == produto){
+            validacaoNome = true
+        }
+    }
+
+    if(qtd == null || codigo == null || produto == null){
+    mensagem = `Preencha todos os campos para repor o produto`
+    }else if(validacaoCodigo == false){
+        mensagem = `Produto não identificado`
+    }else if(qtd <= 0){
+        mensagem = `Quantidade inválida`
+    }else if(validacaoCodigo == false){
+         mensagem = `Codígo inválida`
+    }else if(validacaoNome == false){
+        mensagem = `Nome inválida`
+    }else{
+        mensagem = `${qtd}x do ${produto} foi reposto com sucesso <br>`
+        
+        listaQtd[indice] += qtd
+
+        mensagem += ` Código: ${codigo} | Produto: ${produto} | Quantidade em Estoque: ${listaQtd[indice]} `
+
+        if(listaQtd[indice] < 10){
+            mensagem += ` (Prescisa repor)`
+        }else{
+            mensagem += `(OK)`
+        }
+    }
+    div_mensagem.innerHTML = mensagem
+}
+
+function vender(){
+    var mensagem = ``
+    var produto = input_produto.value
+    var codigo = input_codigo.value
+    var qtd = Number(input_qtd.value)
+    var validacaoCodigo = false
+    var validacaoNome = false
+    var indice = -1
+
+    for(var i = 0; i < listaCodigo.length; i++){
+        if(listaCodigo[i] == codigo && listaNome[i] == produto){
+            validacaoCodigo = true
+            validacaoNome = true
+            indice = i
+            break
+        }
+
+    }
+
+    if(qtd == null || codigo == null || produto == null){
+    mensagem = `Preencha todos os campos para repor o produto`
+    }else if(validacaoCodigo == false){
+        mensagem = `Produto não identificado`
+    }else if(qtd > listaQtd[indice]){
+        mensagem = `Quantidade inválida`
+    }else if(validacaoCodigo == false){
+         mensagem = `Codígo inválida`
+    }else if(validacaoNome == false){
+        mensagem = `Nome inválida`
+    }else{
+        mensagem = `${qtd}x do ${produto} foi vendido com sucesso <br>`
+        
+        listaQtd[indice] -= qtd
+
+        listaVendido[indice] += qtd
+
+        mensagem += ` Código: ${codigo} | Produto: ${produto} | Quantidade em Estoque: ${listaQtd[indice]} `
+
+        if(listaQtd[indice] < 10){
+            mensagem += ` (Prescisa repor)`
+        }else{
+            mensagem += `(OK)`
+        }
+    }
+
+    div_mensagem.innerHTML = mensagem
+
+}
+
+function exibir(){
+
+    var mensagem = ``
+    var produto = input_produto.value
+    var codigo = input_codigo.value
+    var qtd = Number(input_qtd.value)
+    var indiceMaior = 0
+    var indiceMenor = 0
+    var maior = listaQtd[0]
+    var menor = listaQtd[0]
+    var maisVendido = 0
+    var menosVendido = 0
+
+    for(var i = 0; i < listaCodigo.length; i++){
+        mensagem += `Código: ${listaCodigo[i]} | Produto: ${listaNome[i]} | Quantidade em Estoque: ${listaQtd[i]}`
+
+        if(listaQtd[i] < 10){
+            mensagem += ` (Precisa Repor) <br>`
+        }else{
+            mensagem += ` (OK) <br>`
+        }
+
+        if(maior < listaQtd[i]){
+            maior = listaQtd[i]
+            indiceMaior = i
+        }
+
+        if(menor > listaQtd[i]){
+            menor = listaQtd[i]
+            indiceMenor = i
+        }
+    }
+
+    for(var i = 0; i < listaVendido.length; i++){
+        if(maisVendido < listaVendido[i]){
+            maisVendido = i
+        }
+
+        if(menosVendido > listaVendido[i]){
+            menosVendido = i
+        }
+    }
+
+    mensagem += `
+    Produto com maior quantidade: ${listaNome[indiceMaior]} (${listaQtd[indiceMaior]}x)<br>
+    Produto com menor quantidade: ${listaNome[indiceMenor]} (${listaQtd[indiceMenor]}x)<br>
+    Produto mais vendido: ${listaNome[maisVendido]} (${listaVendido[maisVendido]}x)<br>
+    Produto menos vendido: ${listaNome[menosVendido]} (${listaVendido[menosVendido]}x)`
+
+    div_mensagem.innerHTML = mensagem
+}
+
+function excluir(){
+
+    var mensagem = ``
+    var produto = input_produto.value
+    var codigo = input_codigo.value
+    var qtd = Number(input_qtd.value)
+    var validacaoCodigo = false
+    var validacaoNome = false
+    var indice = 0
+
+    for(var i = 0; i < listaCodigo.length; i++){
+        if(listaCodigo[i] == codigo){
+            validacaoCodigo = true
+            indice = i
+        }
+
+        if(listaNome[i] == produto){
+            validacaoNome = true
+        }
+    }
+
+    if(qtd == null || codigo == null || produto == null){
+    mensagem = `Preencha todos os campos para repor o produto`
+    }else if(validacaoCodigo == false){
+        mensagem = `Produto não identificado`
+    }else if(validacaoCodigo == false){
+         mensagem = `Codígo inválida`
+    }else if(validacaoNome == false){
+        mensagem = `Nome inválida`
+    }else{
+        listaCodigo.splice(indice, 1)
+        listaNome.splice(indice, 1)
+        listaQtd.splice(indice, 1)
+        alert("Produto removido")
+    }
+
+    div_mensagem.innerHTML = mensagem
+}
+
+</script>

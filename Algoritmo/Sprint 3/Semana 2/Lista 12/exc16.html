@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do produto: <br>
+    <input type="text" id="input_produto"> <br><br>
+    Preço da compra: <br>
+    <input type="text" id="input_preco"> <br> <br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="relatorio()">Relatório de estoque</button>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+<script>
+var listaProduto = []
+var listaPreco = []
+
+function cadastrar(){
+    var produto = input_produto.value
+    var preco = Number(input_preco.value)
+    var produtoCaro = ``
+
+    listaProduto.push(produto)
+    listaPreco.push(preco)
+
+}
+
+function relatorio(){
+    var mensagem = ``
+    var numeroMaior = 0
+
+    mensagem = ` Total de produtos: ${listaProduto.length} <br>`
+
+    for(var i = 1; i <= listaProduto.length; i++){
+        mensagem += `
+         Produto ${i}: ${listaProduto[i - 1]} <br> 
+
+         Preço de compra: R$${listaPreco[i - 1]}. Vender por R$${listaPreco[i - 1] * 1.25} <br>  
+        
+        `
+    }
+
+    for(var i = 1; i <= listaProduto.length; i++){
+        if(listaPreco[i - 1] > numeroMaior ){
+            numeroMaior = listaPreco[i - 1] 
+            produtoCaro = listaProduto[i - 1] 
+        }
+    }
+
+    mensagem += `O produto mais caro é: ${produtoCaro} <br>`
+
+    var numeroMenor = numeroMaior
+
+    for(var i = 1; i <= listaProduto.length; i++){
+        if(listaPreco[i - 1] < numeroMenor ){
+            numeroMenor = listaPreco[i - 1] 
+            mensagem += `O produto menos caro é: ${listaProduto[i - 1]} <br>`
+        }
+    }
+
+    var total = 0
+
+    for(var i = 1; i <= listaPreco.length; i++){
+         total += listaPreco[i - 1]
+    }
+
+    mensagem += `No total da compra deu: ${total} <br>
+    Média da compra: ${total / listaProduto.length}
+    `
+
+    div_mensagem.innerHTML = mensagem
+
+}
+
+function registro(){
+    var mensagem = ``
+    var numeroMaior = 0
+    var numeroMenor = Number(input_numero.value)
+
+    for(var i = 1; i <= listaNumero.length; i++){
+        mensagem += `${i}º Número:${listaNumero[i - 1]} <br>`
+
+        if(listaNumero[i - 1] > numeroMaior ){
+            numeroMaior = listaNumero[i - 1] 
+        }
+
+        if(listaNumero[i - 1] < numeroMenor ){
+            numeroMenor = listaNumero[i - 1] 
+        }
+    }
+
+    mensagem += ` Maior: ${numeroMaior} <br>
+    Menor: ${numeroMenor}
+    `
+    div_mensagem.innerHTML = mensagem
+}
+
+</script>

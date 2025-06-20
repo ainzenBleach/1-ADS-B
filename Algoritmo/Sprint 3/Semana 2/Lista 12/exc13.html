@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Indique o resultado do jogo: <br>
+    <select id="select_resultado">
+        <option>Vitória</option>
+        <option>Empate</option>
+        <option>Derrota</option>
+    </select> <br>
+    Indique qual jogo deseja saber o resultado: <br>
+    <input type="number" id="input_jogo" oninput="saber()"> <br> <br>
+    <button onclick="registrar()">Registrar jogo</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+var listaJogos = []
+
+function registrar(){
+    var mensagem = ``
+    var registro = ``
+    var vitoria = 0
+    var empate = 0
+    var derrota = 0
+    
+    listaJogos.push(select_resultado.value)
+
+    for(var i = 1; i <= listaJogos.length; i++){
+        if(listaJogos[i - 1] == "Vitória"){
+            vitoria++
+        }else if(listaJogos[i - 1] == "Empate"){
+            empate++
+        }else{
+            derrota++
+        }
+    }
+
+    mensagem = `
+    
+      O time teve: ${vitoria} vitórias, ${empate} empates, ${derrota} derrotas  <br>
+
+      Pontuação total: ${vitoria * 3 + empate} pontos  <br>
+
+      Aproveitamento: ${(((vitoria * 3 + empate)/((vitoria + empate + derrota)*3)) * 100)}%  
+    
+    `
+    div_mensagem.innerHTML = mensagem
+}
+
+function saber(){
+    var mensagem = ``
+    var jogo = Number(input_jogo.value)
+    var resultado = ``
+    resultado = listaJogos[jogo - 1]
+   
+
+    if(listaJogos.length >= jogo){
+        mensagem = ` No ${jogo}º jogo, o time ${resultado} `
+    }else{
+        mensagem = `Jogo não encontrado`
+    }
+    div_mensagem.innerHTML = mensagem
+}
+</script>

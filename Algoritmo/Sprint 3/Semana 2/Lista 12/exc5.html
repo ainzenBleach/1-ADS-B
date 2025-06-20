@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nomes de seus filmes favoritos: <br>
+    <input type="text" id="input_filmes"> <br><br>
+    <button onclick="cadastrar()">Cadastrar filme</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+var listaFilme = []
+
+function cadastrar(){
+    var mensagem = ``
+    var filme = input_filmes.value
+    listaFilme.push(filme)
+
+    for(var i = 1; i <= listaFilme.length; i++){
+
+        if(i != 1 && i != 3){
+            mensagem += `Seu ${i}º filme: ${listaFilme[i - 1]} <br>`
+        }else if (i == 1){
+            mensagem += `Seu filme favorito:${listaFilme[0]} <br>`
+        }else{
+            mensagem += `Seu 3º filme favorito:${listaFilme[2]} <br>`
+        }
+
+    }
+
+    mensagem += ` Total de filmes cadastrados: ${listaFilme.length}`
+    div_mensagem.innerHTML = mensagem
+}
+
+</script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Digite um número qualquer: <br>
+    <input type="text" id="input_numero"> <br><br>
+    <button onclick="cadastrar()">Cadastrar número</button>
+    <button onclick="registro()">Analisar histórico</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+var listaNumero = []
+
+function cadastrar(){
+    var numero = Number(input_numero.value)
+    listaNumero.push(numero)
+}
+
+function registro(){
+    var mensagem = ``
+    var numeroMaior = listaNumero[0]
+    var numeroMenor = listaNumero[0]
+
+    for(var i = 1; i <= listaNumero.length; i++){
+        mensagem += `${i}º Número:${listaNumero[i - 1]} <br>`
+
+        if(listaNumero[i - 1] > numeroMaior ){
+            numeroMaior = listaNumero[i - 1] 
+        }
+
+        if(listaNumero[i - 1] < numeroMenor ){
+            numeroMenor = listaNumero[i - 1] 
+        }
+    }
+
+    mensagem += ` Maior: ${numeroMaior} <br>
+    Menor: ${numeroMenor}
+    `
+    div_mensagem.innerHTML = mensagem
+}
+</script>

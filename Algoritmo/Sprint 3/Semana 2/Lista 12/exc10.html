@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: flex
+    }
+    #ver_linha{
+        margin-left:150px ;
+    }
+    #cadastro_linha{
+        width: 400px;
+    }
+</style>
+<body>
+    <div id="cadastro_linha">
+        Linhas que você já pegou: <br>
+        <input type="text" id="input_onibus"> <br><br>
+        <button onclick="gravar()">Gravar busão</button>
+        <div id="div_mensagem"></div>
+    </div>
+    <div id="ver_linha">
+    
+        Ver linha: <br>
+        <input type="text" id="input_linha"> <br> <br>
+        <button onclick="pesquisar()">Pesquisar linha</button>
+    </div>
+</body>
+</html>
+<script>
+
+ var listaOnibus = []
+ var mensagem = ``
+
+ function gravar(){
+    var onibus = input_onibus.value
+    mensagem = ``
+
+    listaOnibus.push(onibus)
+
+    for(var i = 1; i <= listaOnibus.length; i++ ){
+        mensagem += `${i}. ${listaOnibus[listaOnibus.length - i]} <br>`
+    }
+
+    div_mensagem.innerHTML = mensagem
+ }
+
+ function pesquisar(){
+    var vezes = []
+    var linha = input_linha.value
+    var contador = 0
+    
+    for (let i = 1; i <= listaOnibus.length; i++) {
+        if(listaOnibus[i - 1] == linha){
+            contador++
+            vezes.push(i)
+        }
+    }
+
+    if(contador == 0){
+        mensagem += `<br> Você nunca pegou essa linha <br>`
+    }else{
+        mensagem += ` <br> Você já pegou essa linha ${contador} vezes, nessa ordem: ${vezes[0]}`
+        for(var i = 1; i < vezes.length; i++){
+            mensagem += `, ${vezes[i]}`
+        };
+    }
+
+    div_mensagem.innerHTML = mensagem
+ }
+
+</script>

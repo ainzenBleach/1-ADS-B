@@ -1,0 +1,101 @@
+:root {
+  --background: #121712;
+  --text: #e4d1b4;
+  --button: #a43f27;
+  --highlight: #2e4a33;
+  --visuals: #c3ab6c;
+  --active: #69b17e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  background-color: var(--highlight);
+  width: 250px;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar h2 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.sidebar span {
+  color: white;
+}
+
+.avatar {
+  background-color: var(--button);
+  width: 140px;
+  height: 180px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  margin: 20px 0;
+}
+
+.logout {
+  background-color: var(--button);
+  border: none;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.logout:hover {
+  background-color: #812f1a;
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+}
+
+.dashboard-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: var(--visuals);
+}
+
+.charts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: flex-start;
+}
+
+.chart-card {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 320px;
+  text-align: center;
+}
+
+.chart-card h3 {
+  margin-bottom: 15px;
+  color: #333;
+}

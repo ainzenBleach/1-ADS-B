@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Produtos:
+    <input type="text" id="input_produto"> <br>
+    <button onclick="adicionar()">Adicionar produto</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+// Apenas utilizar o [], entende-se que é criada uma lista
+// Ao atribuir em uma variavel, EX: var teste = [], criar uma lista na variavel
+// Ao utilizar um [] dentro de [] cria uma matrix e para chamar devemos utilizar teste[1][2], com o primeito [] sendo utilizado o primeiro para o segundo como o [] de fora ir para dentro.
+// O [] pode receber valores matematicos para adicionar de acordo com indice
+// Para colocar na primeira posição vazia podemos utilizar o teste.push(valor que quer colocar) ou teste[teste.length].
+
+var lista_produto = []
+
+function adicionar(){
+    var produto = input_produto.value
+    lista_produto.push(produto)
+
+    div_mensagem.innerHTML = `${lista_produto} <br>`
+
+    for(var i = 0; i< lista_produto.length; i++){
+        div_mensagem.innerHTML += `${i}. ${lista_produto[i]} <br>`
+    }
+}
+
+
+
+</script>
+
+<!-- Metodo push e unshifit
+push - coloca no ultimo lugar do []
+unshift - coloca na primeira posição do []
+
+
+-->

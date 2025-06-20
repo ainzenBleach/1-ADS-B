@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Cadastrar estoque de comida <br>
+    <input type="text" id="input_comida" placeholder="comida"> <br> <br>
+    <input type="number" id="input_qtdComida" placeholder="quantidade comida"> <br> <br>
+    <button onclick="cadastar()">Cadastrar</button> 
+    <button onclick="verificar()">Verificar Quantidade</button> <br><br><br>
+    <hr>
+    Pesquisar comida: <br> 
+    <input type="text" id="input_pesquisa"> <br><br>
+    <button onclick="pesquisar()">Pesquisar</button>
+    <button onclick="exibir()">Exibir estoque</button> <br><br><br>
+    <hr>
+    Insira o nome antigo: <br>
+    <input type="text" id="input_nomeAntigo"> <br>
+    Insira o nome novo: <br>
+    <input type="text" id="input_nomeNovo"><br>
+    <button onclick="renomear()">Renomear produto</button> <br><br><br>
+    <hr>
+    Remover comida do estoque: <br>
+    <input type="text" id="input_nomeRemover"> <br>
+    <button onclick="remover()">Remover comida</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+var listaComida = []
+var listaQtdComida = []
+var ComidaLuffu = 0
+
+function cadastar(){
+    var comida = input_comida.value
+    var qtdComida = Number(input_qtdComida.value)
+    var indice = -1
+
+    if(comida != ""){
+        if(qtdComida > 0){
+
+        for(var i = 0; i < listaComida.length; i++){
+            if(listaComida[i] == comida){
+                indice = i
+                break
+            }
+        }
+
+        if(indice == -1){
+            listaComida.push(comida)
+            listaQtdComida.push(qtdComida)
+            ComidaLuffu ++
+        }else{
+            listaQtdComida[indice] = listaQtdComida[indice] + qtdComida
+            ComidaLuffu ++
+        }
+
+    }else{
+        alert(`Insira um valor maior que 0`)
+    }
+    }
+}
+
+function verificar(){
+var mensagem = ``
+if(ComidaLuffu < 3){
+    mensagem = `Desse jeito, o Luffy devora até o navio`
+}else if(ComidaLuffu <= 7){
+    mensagem = `O comilão do Luffy não vai deixar sobrar nenhuma comida`
+}else if(ComidaLuffu <= 10){
+    mensagem = `Assim, talvez sobre um pouco para a tripulação`}
+else{
+    mensagem = `"Desse jeito vai ter comida para todo mundo e ainda consigo guardar um pouco para a senhorita Nami!`
+}
+
+div_mensagem.innerHTML = mensagem
+}
+
+function pesquisar(){
+    var pesquisa = input_pesquisa.value
+    var mensagem = ``
+
+    for(var i = 0; i < listaComida.length; i++){
+        if(listaComida[i] == pesquisa){
+            mensagem = `Temos a comida ${listaComida[i]} e há ${listaQtdComida[i]} unidade(s) dela`
+            break
+        }else{
+        mensagem = `Alguém vai ter que comprar ${pesquisa}, tá fazendo falta...`
+        }
+    }
+
+    div_mensagem.innerHTML = mensagem
+}
+
+function exibir(){
+
+    var mensagem = ``
+
+    for(var i = 0; i < listaQtdComida.length; i++ ){
+
+        if(listaQtdComida[i] == 1){
+            mensagem += `- ${listaComida[i]} (${listaQtdComida[i]} unidade) <br>`
+        }else{
+            mensagem += `- ${listaComida[i]} (${listaQtdComida[i]} unidades) <br>`
+        }
+        
+    }
+
+    div_mensagem.innerHTML = mensagem
+
+}
+
+function renomear(){
+var nomeAntigo = input_nomeAntigo.value
+var nomeNovo = input_nomeNovo.value
+var indice = -1
+var mensagem = ``
+
+for(var i = 0; i < listaComida.length; i++){
+    if(listaComida[i] == nomeAntigo){
+        indice = i
+        break
+    }
+}
+
+if(indice == -1){
+    mensagem = `A comida ${nomeAntigo} não foi encontrada no estoque.`
+}else{
+    mensagem = `A comida ${nomeAntigo} foi alterada para ${nomeNovo}`
+
+    var nomeTem = false
+
+    for(var i = 0; i < listaComida.length; i++){
+        if(listaComida[i] == nomeNovo){
+            listaQtdComida[i] += listaQtdComida[listaComida.indexOf(nomeAntigo)] 
+            listaQtdComida.splice(listaComida.indexOf(nomeAntigo),1)
+            listaComida.splice(listaComida.indexOf(nomeAntigo),1)
+            nomeTem = true
+            break
+        }
+    }
+    if(nomeTem == false){
+        listaComida[indice] = nomeNovo
+    }
+    
+}
+
+
+div_mensagem.innerHTML = mensagem 
+}
+
+function remover(){
+var nomeRemover = input_nomeRemover.value
+var indice = -1
+var mensagem = ``
+
+for(var i = 0; i < listaComida.length; i++){
+    if(listaComida[i] == nomeRemover){
+        indice = i
+        break
+    }
+}
+
+if(indice == -1){
+    mensagem = `A comida ${nomeRemover} não está no estoque.`
+}else{
+    mensagem = `A comida ${nomeRemover} foi removida do estoque.`
+    listaComida.splice(indice,1) 
+    listaQtdComida.splice(indice,1) 
+    ComidaLuffu --
+}
+
+
+div_mensagem.innerHTML = mensagem 
+}
+
+</script>

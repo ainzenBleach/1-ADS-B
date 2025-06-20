@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Profissional</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --bg: #121915;
+      --text-default: #e6d6b8;
+      --button: #a2391d;
+      --text-highlight: #2c4633;
+      --visual-elements: #c4ae75;
+      --active-elements: #62aa77;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-default);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      display: flex;
+      height: 100%;
+    }
+
+    .sidebar {
+      width: 300px;
+      background-color: var(--text-highlight);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2rem 1rem;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .user-info h2 {
+      font-size: 1.3rem;
+      text-align: center;
+    }
+
+    .avatar {
+      flex: 1;
+      background-color: var(--button);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      overflow-y: auto;
+      padding: 1rem;
+      max-height: 400px;
+    }
+
+    .post-item {
+      background-color: #ffffff22;
+      color: white;
+      padding: 0.6rem;
+      margin-bottom: 0.8rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .post-item:hover {
+      background-color: var(--active-elements);
+      color: #000;
+    }
+
+    .logout {
+      background-color: var(--button);
+      color: white;
+      border: none;
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 100%;
+    }
+
+    .logout:hover {
+      background-color: #8e2e17;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      border-bottom: 2px solid var(--visual-elements);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background-color: #ffffff10;
+      padding: 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .card h3 {
+      margin-bottom: 1rem;
+      color: var(--text-default);
+    }
+
+    .kpi-box {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .kpi {
+      flex: 1;
+      background-color: #ffffff15;
+      padding: 1rem;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .kpi h4 {
+      color: var(--visual-elements);
+      margin-bottom: 0.5rem;
+    }
+
+    .kpi p {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="user-info">
+        <h2>Olá, João Henrique</h2>
+        <div class="avatar">
+          <div class="post-item">📌 Dicas de JavaScript</div>
+          <div class="post-item">🛠️ Introdução ao Node.js</div>
+          <div class="post-item">🚀 Projeto Open Source</div>
+          <div class="post-item">📅 Resumo Semanal</div>
+          <div class="post-item">🐞 Correção de Bug</div>
+          <div class="post-item">💡 Ideias Criativas</div>
+          <div class="post-item">🔍 Explorando MySQL</div>
+          <div class="post-item">📄 Práticas em HTML</div>
+        </div>
+      </div>
+      <button class="logout">Sair</button>
+    </aside>
+
+    <main class="main-content">
+      <header class="header">
+        <h1>Visão Geral do Sistema</h1>
+      </header>
+
+      <section class="kpi-box">
+        <div class="kpi">
+          <h4>Likes nos Posts</h4>
+          <p>254</p>
+        </div>
+        <div class="kpi">
+          <h4>Visualizações</h4>
+          <p>1.342</p>
+        </div>
+        <div class="kpi">
+          <h4>Comentários Totais</h4>
+          <p>87</p>
+        </div>
+      </section>
+
+      <section class="dashboard-grid">
+        <div class="card">
+          <h3>Reações nos Posts</h3>
+          <canvas id="chart1"></canvas>
+        </div>
+
+        <div class="card">
+          <h3>Comentários por Dia</h3>
+          <canvas id="chart2"></canvas>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const chart1 = new Chart(document.getElementById('chart1').getContext('2d'), {
+      type: 'bar',
+      data: {
+        labels: ['Upvotes', 'Downvotes'],
+        datasets: [{
+          label: 'Quantidade',
+          data: [134, 29],
+          backgroundColor: ['#62aa77', '#a2391d']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: {
+              color: '#e6d6b8'
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: { color: '#e6d6b8' }
+          },
+          y: {
+            ticks: { color: '#e6d6b8' }
+          }
+        }
+      }
+    });
+
+    const chart2 = new Chart(document.getElementById('chart2').getContext('2d'), {
+      type: 'line',
+      data: {
+        labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+        datasets: [{
+          label: 'Comentários por dia',
+          data: [5, 8, 12, 6, 14, 20, 9],
+          borderColor: '#c4ae75',
+          backgroundColor: '#c4ae7522',
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: {
+              color: '#e6d6b8'
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: { color: '#e6d6b8' }
+          },
+          y: {
+            ticks: { color: '#e6d6b8' }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

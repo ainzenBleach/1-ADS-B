@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <!-- JSON composto por chave e valor -->
+    
+    <h1>JSON - JavaScript Object Notation</h1>
+    
+    <br>
+    
+    <label>
+    <span>Responsavel:</span>
+    <input type="text" id="input_resp" />
+    </label>
+
+    <br><br>
+
+    <label>
+    <span>Nome:</span>
+    <input type="text" id="input_nome" />
+    </label>
+    
+    <br><br>
+    
+    <label for="input_idade">
+        Idade:
+    </label>
+<input type="number" id="input_idade">
+
+<br> <br>
+
+<button onclick="cumprimentar()">Cumprimentar</button>
+<div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+// Vantagens do JSON
+// 1° - Facilita a estruturação das variaveis dentreo de um mesmo
+// 2° - Facilita a manuntenção de codigo
+
+
+
+function cumprimentar(){
+
+    var nome = input_nome.value
+var idade = input_idade.value
+var nome_responsavel = input_resp.value
+
+    var pessoa = {
+        nome,
+        idadenome ,
+        nome_responsavelnome 
+    }
+
+div_mensagem.innerHTML = `Olá usuário ${pessoa.nome}! <br> Você tem ${pessoa.idade} anos de idade! <br>
+Nome do responsavel: ${pessoa.nome_responsavel}`
+}
+
+</script>

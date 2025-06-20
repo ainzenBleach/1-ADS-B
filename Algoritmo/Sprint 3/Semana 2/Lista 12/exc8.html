@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nomes dos alunos: <br>
+    <input type="text" id="input_aluno"> <br><br>
+    <button onclick="cadastrar()">Cadastrar aluno</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+var listaAluno = []
+
+function cadastrar(){
+    var filme = input_aluno.value
+    var mensagem = ``
+
+    listaAluno.push(filme)
+
+    for(var i = 1; i <= listaAluno.length; i++ ){
+        mensagem += `${listaAluno[listaAluno.length - i]} <br>`
+    }
+    div_mensagem.innerHTML = mensagem
+}
+
+</script>

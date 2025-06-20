@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="tabuleiro()">
+    <div id="div_mensagem"></div>
+    <button onclick="cima()">👆</button>
+    <button onclick="baixo()">👇</button>
+    <button onclick="direita()">👉</button>
+    <button onclick="esquerda()"> 👈 </button>
+</body>
+</html>
+<script>
+
+var tamanho = []
+
+function tabuleiro(){
+var mensagem = ``
+
+    for(var i1 = 0; i1 < 8; i1++){
+
+        tamanho.push([])
+        
+        for(var i2 = 0; i2 <= 2; i2++){
+            tamanho[i1].push(`0`)
+            
+            mensagem += `${tamanho[i1]}`
+        }
+        mensagem += `<br>`
+    }
+
+    div_mensagem.innerHTML = mensagem 
+}
+
+
+</script>
