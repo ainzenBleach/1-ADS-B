@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogo do 7 e meio</title>
+    <link rel="shortcut icon" href="./Elements/favicon.png" type="image/x-icon">
+  </head>
+  <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Press Start 2P";
+    }
+
+    body {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      background-image: url(./Elements/background.png);
+      background-repeat: repeat;
+      background-size: 128px 128px; 
+      background-color: #722e1c;
+    }
+
+    .button {
+      background: none;
+      border: none;
+      width: fit-content;
+    }
+
+    #mesa {
+      margin-top: 7vh;
+    }
+
+    #usuario{
+      height: 17vh;
+    }
+
+    #container {
+    background-image: url(./Elements/mesa.png);
+    background-size: 95vh;
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    height: 87vh;
+    width: 89vh;
+    padding-top: 1vh;
+    background-position-x: right;
+}
+
+    #div_resultado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 66vh;
+    height: 71vh;
+    margin-top: 4vh;
+}
+
+#div_mensagem {
+    width: 80vh;
+    padding-left: 2vh;
+
+}
+
+    .resultado_cartas{
+    height: 43vh;
+    margin-left: 2vh;
+    width: 50vh;
+}
+
+    .carta {
+    position: absolute;
+    width: 14vh;
+}
+
+    .carta_pegar {
+    width: 15vh;
+    cursor: pointer;
+    padding-left: 2vh;
+    transition: 0.3s;
+}
+
+    .carta_pegar:hover {
+      transform: scale(1.05);
+      transition: 0.5s;
+    }
+
+    .trocar {
+    width: 8vh;
+    margin: 1vh;
+    cursor: pointer;
+    transition: 0.8s;
+}
+
+    .trocar:hover {
+      transition: 0.8s;
+      transform: rotate(-360deg);
+    }
+
+    #cartas_jogo {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    padding-top: 8.5vh;
+}
+
+    .chegada_player {
+      animation: chegada 1.5s normal;
+      animation-iteration-count: 1;
+    }
+
+    .pontos{
+      background-color: white;
+      padding: 1vh;
+      border-radius: 8px;
+    }
+
+    #status_jogo{
+      font-size: 1.8vh;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #resultado {
+    width: 84vh;
+    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 78vh;
+    align-items: center;
+  }
+
+    #resultado h2 {
+      padding-bottom: 3vh;
+      color: white;
+    }
+
+    #resultado span {
+      font-size: 2.2vh;
+      color: white;
+    }
+
+#div_jogo{
+    height: 79vh;
+    width: 130vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#btn_jogar {
+    width: 42vh;
+    height: fit-content;
+    border-radius: 10px;
+    border: none;
+    font-size: 2.6vh;
+    padding: 3vh 1vh;
+    cursor: pointer;
+}
+
+#btn_jogar:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+#container_jogo {
+    top: 6vh;
+    position: relative;
+}
+
+#tela_inicial {
+  position: fixed;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  background: url('./Elements/background.png') repeat;
+  background-size: 128px 128px;
+  background-color: #3e1f0f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#tela_inicial_container {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px black;
+}
+
+#tela_inicial_container h1,
+#tela_inicial_container h2 {
+  font-size: 3vh;
+  color: white;
+  margin-bottom: 1.5vh;
+  text-shadow: 2px 2px #000;
+}
+
+#tela_inicial_container h2 {
+  font-size: 4vh;
+  margin-bottom: 4vh;
+}
+
+#botao_iniciar {
+  background-color: #E63946;
+  border: 4px solid #000;
+  padding: 2vh 4vh;
+  font-size: 2vh;
+  color: #fff;
+  font-family: 'Press Start 2P';
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 3px 3px #000;
+}
+
+#botao_iniciar:hover {
+  transform: scale(1.05);
+  background-color: #c92d3d;
+}
+
+
+    @keyframes chegada {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+  </style>
+  <body>
+    <div id="mesa">
+      <div id="div_jogo">
+        <div id="tela_inicial">
+          <div id="tela_inicial_container">
+              <h1>JOGO DO</h1>
+              <h2>7 E ½</h2>
+              <button id="botao_iniciar" onclick="iniciarJogo()">Jogar 7 e ½</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+  </body>
+</html>
+<script>
+  let listaBaralho = ["A", "02", "03", "04", "05", "06", "07", "J", "Q", "K"];
+  let listaNaipe = ["clubs", "diamonds", "hearts", "spades"];
+  let pontosUsuario = 0;
+  let pontosRobo = 0;
+  let historicoCartaUsuario = [];
+  let historicoCartaRobo = [];
+  let espaço_carta = 1;
+  let espaço_carta_robo = 1
+
+  function jogar() {
+    let mensagem = ``;
+
+    div_jogo.innerHTML = `
+    <div id="container_jogo">
+                <div id="div_mensagem">
+                      <div id="status_jogo"></div>
+                </div>
+                <div id="container">
+                    <div id="resultado" style="display: none;>
+                      <h1 "></h1>
+                    </div>
+                    <div id="div_resultado">
+                        <div>
+                            <button onclick="pegar()" class="button">
+                                <img class="carta_pegar" src="./Elements/Cards (large)/card_back.png" alt="" >
+                            </button>
+                        </div>
+                        <div id="cartas_jogo">
+                            <div id="robo" class="resultado_cartas"></div>
+                            <div id="usuario" class="resultado_cartas"></div>
+                        </div>
+                        
+                        <div>
+                            <button onclick="passar()" class="button">
+                                <img class="trocar" src="./Elements/Redo.png" alt=""></button>
+                            </div>
+                            
+                        </div>
+                        
+                </div>
+    </div>
+        `;
+
+    mensagem += `
+      <span class="pontos">Jogador <span id="pontos_usuario">0 pts</span></span> <span class="pontos" >Banca <span id="pontos_robo">0 pts</span></span>`;
+
+    status_jogo.innerHTML = mensagem;
+  }
+
+  function animacao() {
+    if (espaço_carta > 1) {
+      const carta_atual = document.getElementById(`carta_${espaço_carta - 1}`);
+      carta_atual.classList.add("chegada_player");
+    }
+
+    if (espaço_carta > 2) {
+      const carta_anterior = document.getElementById(
+        `carta_${espaço_carta - 2}`
+      );
+      carta_anterior.classList.remove("chegada_player");
+    }
+
+    if (espaço_carta_robo > 1) {
+      const carta_atual = document.getElementById(`carta_${espaço_carta - 1}_robo`);
+      carta_atual.classList.add("chegada_robo");
+    }
+
+    if (espaço_carta_robo > 2) {
+      const carta_anterior = document.getElementById(
+        `carta_${espaço_carta - 2}_robo`
+      );
+      carta_anterior.classList.remove("chegada_robo");
+    }
+  }
+
+  function pegar() {
+    let cartaAleatoria = parseInt(Math.random() * listaBaralho.length);
+    let naipeAleatorio = parseInt(Math.random() * 4);
+    let naipe = ``;
+    let mensagem = ``;
+    let repetido = false;
+    const resultado_partida = document.getElementById("resultado");
+    const ultima_carta = document.getElementById(`carta_${espaço_carta}`);
+
+    for (let i = 0; i < historicoCartaUsuario.length; i++) {
+      if (
+        historicoCartaUsuario[i].naipe == listaNaipe[naipeAleatorio] &&
+        historicoCartaUsuario[i].valor == listaBaralho[cartaAleatoria]
+      ) {
+        repetido = true;
+        break;
+      }
+    }
+
+    if (!repetido) {
+      if (listaBaralho[cartaAleatoria] == "A") {
+        pontosUsuario += 1;
+      } else if (cartaAleatoria <= 6) {
+        pontosUsuario += cartaAleatoria + 1;
+      } else {
+        pontosUsuario += 0.5;
+      }
+
+      carta = {
+        naipe: listaNaipe[naipeAleatorio],
+        valor: listaBaralho[cartaAleatoria],
+      };
+
+      historicoCartaUsuario.push(carta);
+
+
+      // Adiciona a carta sempre no usuario
+      let cartaHTML = `<img class="carta" id="carta_${espaço_carta}" src="./Elements/Cards (large)/card_${listaNaipe[naipeAleatorio]}_${listaBaralho[cartaAleatoria]}.png" alt="" style="transform: translateX(${2.5 * (espaço_carta - 1)}vh);" >`;
+      usuario.innerHTML += cartaHTML;
+      espaço_carta += 1;
+      pontos_usuario.innerHTML = `${pontosUsuario} pts`;
+
+      if(pontosUsuario > 7.5){
+          div_resultado.style.display = "none"
+          resultado_partida.style.display = "flex";
+          resultado_partida.innerHTML = `<h2>O JOGADOR ESTOUROU!</h2> <span>A banca venceu com ${pontosUsuario - pontosRobo} pontos!</span>`
+      }else if (pontosUsuario == 7.5){
+          div_resultado.style.display = "none"
+          resultado_partida.style.display = "flex";
+          resultado_partida.innerHTML = `<h2>O JOGADOR VENCEU</h2> <span>A banca venceu com 7.5 pontos!</span>`
+      }else{
+        animacao();
+      }
+
+     
+    } else {
+      pegar();
+    }
+  }
+
+  async function passar() {
+    const resultado_partida = document.getElementById("resultado");
+    if (window.executandoPassar) return;
+    window.executandoPassar = true;
+
+    status_jogo.innerHTML = `<span class="pontos">Jogador ${pontosUsuario} pts</span> <span class="pontos" >Banca <span id="pontos_robo">0 pts</span></span>`;
+
+    while (pontosRobo < pontosUsuario) {
+        await delay(1000);
+
+        let cartaAleatoria = parseInt(Math.random() * listaBaralho.length);
+        let naipeAleatorio = parseInt(Math.random() * 4);
+
+        let cartaRepetida = historicoCartaRobo.some(c =>
+            c.naipe == listaNaipe[naipeAleatorio] &&
+            c.valor == listaBaralho[cartaAleatoria]
+        );
+        if (cartaRepetida) continue; // tenta outra carta
+
+        // Pontuação
+        let valorCarta = listaBaralho[cartaAleatoria];
+        if (valorCarta == "A") {
+            pontosRobo += 1;
+        } else if (!isNaN(valorCarta)) {
+            pontosRobo += parseInt(valorCarta);
+        } else {
+            pontosRobo += 0.5;
+        }
+
+        // Atualiza histórico
+        let carta = {
+            naipe: listaNaipe[naipeAleatorio],
+            valor: valorCarta
+        };
+        historicoCartaRobo.push(carta);
+
+       
+
+        // Mostra só essa carta
+        let cartaHTML = `<img id="carta_${espaço_carta_robo}_robo" class="carta" src="./Elements/Cards (large)/card_${carta.naipe}_${carta.valor}.png" style="transform: translateX(${
+        2.5 * (espaço_carta_robo - 1)
+      }vh); alt="">`;
+        robo.innerHTML += cartaHTML;
+
+         espaço_carta_robo += 1;
+         
+        // Atualiza placar
+        pontos_robo.innerHTML = `${pontosRobo} pts`;
+    }
+
+    // Resultado final
+    let resultadoFinal = "";
+    if (pontosRobo > 7.5) {
+        div_resultado.style.display = "none"
+        resultado_partida.style.display = "flex";
+        resultado_partida.innerHTML = `<h2>A BANCA ESTOUROU!</h2> <span>O jogador venceu com ${pontosUsuario} pontos!</span>`
+
+      } else if (pontosRobo == 7.5) {
+        div_resultado.style.display = "none"
+        resultado_partida.style.display = "flex";
+        resultado_partida.innerHTML = `<h2>SETE E MEIO!</h2> <span>A banca venceu com 7.5 pontos!</span>`
+
+      } else {
+
+        div_resultado.style.display = "none"
+        resultado_partida.style.display = "flex";
+        resultado_partida.innerHTML = `<h2>A BANCA VENCEU!</h2> <span>A banca venceu com ${pontosRobo} pontos!</span>`
+      }
+
+    animacao()
+    window.executandoPassar = false;
+}
+
+  function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+  function iniciarJogo() {
+  const tela = document.getElementById("tela_inicial");
+  tela.style.display = "none";
+
+    let mensagem = ``;
+
+    div_jogo.innerHTML = `
+    <div id="container_jogo">
+                <div id="div_mensagem">
+                      <div id="status_jogo"></div>
+                </div>
+                <div id="container">
+                    <div id="resultado" style="display: none;>
+                      <h1 "></h1>
+                    </div>
+                    <div id="div_resultado">
+                        <div>
+                            <button onclick="pegar()" class="button">
+                                <img class="carta_pegar" src="./Elements/Cards (large)/card_back.png" alt="" >
+                            </button>
+                        </div>
+                        <div id="cartas_jogo">
+                            <div id="robo" class="resultado_cartas"></div>
+                            <div id="usuario" class="resultado_cartas"></div>
+                        </div>
+                        
+                        <div>
+                            <button onclick="passar()" class="button">
+                                <img class="trocar" src="./Elements/Redo.png" alt=""></button>
+                            </div>
+                            
+                        </div>
+                        
+                </div>
+    </div>
+        `;
+
+    mensagem += `
+      <span class="pontos">Jogador <span id="pontos_usuario">0 pts</span></span> <span class="pontos" >Banca <span id="pontos_robo">0 pts</span></span>`;
+
+    status_jogo.innerHTML = mensagem;
+}
+</script>
